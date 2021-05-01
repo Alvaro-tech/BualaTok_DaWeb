@@ -1,0 +1,63 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#centrador{
+  text-align: center;
+}
+
+#alinearIzquierda{
+  align-items: flex-start; 
+}
+
+.form-control {
+  display:initial !important;
+}
+
+
+#buttonReg{
+  margin-top: 80;
+  margin-bottom: 50px;
+  margin-right: 40px;
+  margin-left: 25px;
+  background: rgb(36, 64, 185);
+}
+
+fieldset {
+background-color: white;
+border-radius: 4px;
+border: 1px solid rgb(0, 0, 0);
+  padding-bottom: 20px;
+}
+
+#fieldsetReg {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: 1px solid rgb(0, 0, 0);
+    padding-bottom: 20px;
+  }
+
+legend {
+background-color: #fff;
+border: 1px solid rgb(255, 255, 255);
+border-radius: 4px;
+color: black;
+font-size: 17px;
+font-weight: bold;
+width: auto;
+}
+
+#legendReg {
+  background-color: #fff;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+  width: auto;
+  }

@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <title>Buscador</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link
+         rel="stylesheet"
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+         crossorigin="anonymous"
+         />
+      <!-- FontAwesome -->
+      <link 
+         rel="stylesheet"
+         href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+         rel="stylesheet">
+      <script
+         src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         crossorigin="anonymous"
+         ></script>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+         crossorigin="anonymous"
+         ></script>
+      <script
+         src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+         crossorigin="anonymous"
+         ></script>
+   </head>
+   <body>
+      <div class="container" style="text-align: center;  padding: 20px; ">
+         <i class="fas fa-search-dollar fa-6x"></i>
+      </div>
+      <div class="card mx-auto" style="width: 80%; padding: 10px;">
+      <div class="card-body">
+         <h5 class="card-title">Buscador</h5>
+         <div>
+            <div class="input-group rounded">
+               <input type="search" class="form-control rounded" placeholder="Texto" aria-label="Texto"
+                  aria-describedby="search-addon" />
+               <span class="input-group-text border-0" id="texto-addon">
+               <i class="fas fa-search"></i>
+               </span>
+            </div>
+            <span style="padding: 1px" >
+               <div class="input-group rounded">
+                  <input type="search" class="form-control rounded" placeholder="Estado" aria-label="Estado"
+                     aria-describedby="search-addon" />
+                  <span class="input-group-text border-0" id="estado-addon">
+                  <i class="fas fa-search"></i>
+                  </span>
+                  <input type="search" class="form-control rounded" placeholder="Precio Minimo" aria-label="premin"
+                     aria-describedby="search-addon" />
+                  <span class="input-group-text border-0" id="premin-addon">
+                  <i class="fas fa-search"></i>
+                  </span>
+                  <input type="search" class="form-control rounded" placeholder="Precio Maximo" aria-label="premax"
+                     aria-describedby="search-addon" />
+                  <span class="input-group-text border-0" id="premax-addon">
+                  <i class="fas fa-search"></i>
+                  </span>
+                  <input type="search" class="form-control rounded" placeholder="Categoria" aria-label="categoria"
+                     aria-describedby="search-addon" style="width: 40%;"/>
+                  <span class="input-group-text border-0" id="categoria-addon">
+                  <i class="fas fa-search"></i>
+                  </span>
+            </span>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RegistrarProducto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="style.css" type="text/css" href="/public/stylesheets/">
+</head>
+
+<body>
+    <br>
+    <div class="well" id="centrador">
+        <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
+    </div>
+    <br>
+
+
+    <div class="container">
+        <form name="my-form" onsubmit="" action="" method="">
+            <div class="form-group row">
+                <label for="full_name" class="col-2 col-form-label text-right">Nombre</label>
+                <div class="col-8">
+                    <input type="text" id="full_name" class="form-control" name="full-name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="descripcion" class="col-md-2 col-form-label text-md-right">Descripcion</label>
+                <div class="col-md-8">
+                    <textarea class="form-control" rows="3" id="descripcion"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <div class="form-group row">
+                        <label for="Credito" class="col-md-4 col-form-label text-md-right">Credito</label>
+                        <div class="col-md-4">
+                            <input type="number" min="0" max="10" step="2" value="0" size="10">
+                        </div>
+                        <label for="provincia" class="col-md-4 col-form-label text-md-right">Foto</label>
+                    </div>
+                    <div class="form-group row">
+                        <label for="categoria" class="col-md-4 col-form-label text-md-right">Categoria</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="categoria">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="estado" class="col-md-4 col-form-label text-md-right"></label>
+                        <fieldset id="fieldsetReg" class="col-md-8">
+                            <legend id="legendReg">Estado</legend>
+                            <div class="form-check" >
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio">Nuevo
+                                </label>
+                            </div>
+                            <div class="form-check" id="centrador">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio">Bueno
+                                </label>
+                            </div>
+                            <div class="form-check" id="centrador">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio">Malo
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <br>
+                    <div class="form-group row" style="margin-left: 180px;">
+                        <button id="buttonReg" type="submit"  class="btn btn-primary">Cancelar</button>
+                        <button id="buttonReg" type="submit"  class="btn btn-primary">Aceptar</button>
+                    </div>
+                </div> 
+                <div class="form-group col-md-6">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <img class="img-rounded" src="images/FlorRoja.jpg" alt="Card image" width="270" height="320">
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <input type="image" src="images/download.png" name="saveForm" class="btTxt submit" id="saveForm" width="80" height="80"/>
+                            </div>
+                            <div class="form-group row">
+                                <input type="image" src="images/cancelar.png" name="saveForm" class="btTxt submit" id="saveForm" width="80" height="80"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
