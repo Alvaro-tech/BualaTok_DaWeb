@@ -7,16 +7,16 @@ var router = express.Router();
 // ### MySql INIT
 const conexion = mysql.createConnection(
   {
-  host:'localhost:3306',
-  user:'root',
-  password:'',
+  host:'localhost',
+  user:'daweb',
+  password:'daweb',
   database:'daweb'
   });
 
   //### Check Connect BBDD
   conexion.connect(function (error){
     if (error)
-    console.log('Problemas de conexion con mysql');
+    throw error;
     });
 
 
@@ -38,7 +38,7 @@ router.get('/registrarProducto', function(req, res, next) {
 
 
 router.get('/login', function(req, res, next) {
-  const sql = " INSERT INTO daweb.usuario (nombre, apellidos, usuario, clave, credito, provincia, mail) VALUES ('Jose', 'Gutierrez Fernandez', 'josegu', 'jose123', 45, 'Murcia', 'josegu@um.es');";
+  const sql = " INSERT INTO daweb.usuario (nombre, apellidos, usuario, clave, credito, provincia, mail) VALUES ('Jose', 'Gutierrez Fernandez', 'albertocrt', 'jose123', 45, 'Murcia', 'josegu@um.es');";
   conexion.query(sql, (error, results) => {
     if (error) throw error;
   });
