@@ -3,8 +3,6 @@ const mysql = require('mysql'); // <- Conexión con la BBDD
 const app1 = require('../app');
 var router = express.Router();
 
-
-
 // ### MySql INIT
 const conexion = mysql.createConnection(
   {
@@ -12,17 +10,15 @@ const conexion = mysql.createConnection(
   user:'daweb',
   password:'daweb',
   database:'daweb'
-  });
+  })
+
 
   //### Check Connect BBDD
   conexion.connect(function (error){
     if (error)
     throw error;
-    });
-
-
-
-
+  });
+  
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -57,5 +53,8 @@ router.post('/submit-login', (req, res) => {
   
 });
 
+function quetal(){
+  return "que tal";
+}
 
 module.exports = router;
