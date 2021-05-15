@@ -1,7 +1,8 @@
 var express = require('express');
 const mysql = require('mysql'); // <- Conexión con la BBDD
-const app = require('../app');
-var router = express.Router();   
+const app1 = require('../app');
+var router = express.Router();
+
 
 
 // ### MySql INIT
@@ -35,16 +36,26 @@ router.get('/registrarProducto', function(req, res, next) {
   res.render('registrarProducto', {});
 });
 
-
-
 router.get('/login', function(req, res, next) {
-  const sql = " INSERT INTO daweb.usuario (nombre, apellidos, usuario, clave, credito, provincia, mail) VALUES ('Jose', 'Gutierrez Fernandez', 'albertocrt', 'jose123', 45, 'Murcia', 'josegu@um.es');";
-  conexion.query(sql, (error, results) => {
-    if (error) throw error;
-  });
+  //const sql = " INSERT INTO daweb.usuario (nombre, apellidos, usuario, clave, credito, provincia, mail) VALUES ('Jose', 'Gutierrez Fernandez', 'prueba1', 'jose123', 45, 'Murcia', 'josegu@um.es');";
+  //conexion.query(sql, (error, results) => {
+    //if (error) throw error;
+  //});
   res.render('sigIn', {});
 });
 router.get('/bucador', function(req, res, next) {
   res.render('buscador', {});
 });
+
+// ### POST methods ###
+router.post('/submit-login', (req, res) => {
+  //const username = req.body.username
+  console.log("Estoy haciendo el submit en el  index");
+  //loginController.sumbitLogin();
+  res.render('sigIn', {});
+  //res.end()
+  
+});
+
+
 module.exports = router;
