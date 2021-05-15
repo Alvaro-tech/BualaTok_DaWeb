@@ -12,13 +12,12 @@ const conexion = mysql.createConnection(
   database:'daweb'
   })
 
-
   //### Check Connect BBDD
   conexion.connect(function (error){
     if (error)
     throw error;
   });
-  
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -53,8 +52,4 @@ router.post('/submit-login', (req, res) => {
   
 });
 
-function quetal(){
-  return "que tal";
-}
-
-module.exports = router;
+module.exports = [router];

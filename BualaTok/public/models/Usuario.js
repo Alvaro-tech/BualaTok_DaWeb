@@ -9,3 +9,7 @@ class Usuario {
     this.mail = mail;
     }
 }
+export function createUsuario(nombre, apellidos, usuario, clave, credito, provincia, mail) {
+    var user = new Usuario(nombre, apellidos, usuario, clave, credito, provincia, mail);
+    return user;
+}
