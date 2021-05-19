@@ -28,12 +28,12 @@ router.post("/login", (req, res, next) => {
       if (results.length > 0) {
         var pass = results[0].CLAVE;
         if(pass==password){
-            res.render('index', {title: 'Express' });
+          var bienvenido = 'Bienvenido: ' + username;
+          res.render('index', { title: bienvenido, contrasena: password});
         } else{
-            res.redirect('sigIn'); //redirect???
+            res.redirect('/login');
         }
       }
-      res.end();
     }
   );
 });
