@@ -32,36 +32,36 @@
 
 
     <div class="container">
-        <form name="my-form" onsubmit="" action="" method="">
+        <form name="my-form" onsubmit="" action="/registrarUsuario" method="POST">
             <div class="form-group row">
                 <label for="full_name" class="col-2 col-form-label text-right">Nombre</label>
                 <div class="col-8">
-                    <input type="text" id="full_name" class="form-control" name="full-name">
+                    <input type="text" id="name" class="form-control" name="name">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="apellidos_id" class="col-md-2 col-form-label text-md-right">Apellidos</label>
                 <div class="col-md-8">
-                    <input type="text" id="apellidos_id" class="form-control" name="apellidos-name">
+                    <input type="text" id="apellidos" class="form-control" name="apellidos">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="user_name" class="col-md-2 col-form-label text-md-right">Usuario</label>
                 <div class="col-md-4">
-                    <input type="text" id="user_name" class="form-control" name="username">
+                    <input type="text" id="username" class="form-control" name="username">
                 </div>
             </div>
 
             <div class="form-group row ">
                 <label for="pass_id" class="col-2 col-form-label text-md-right">Password</label>
                 <div class="col-4">
-                    <input type="password" id="pass_id" class="form-control">
+                    <input type="password" id="pass1" name="pass1" class="form-control">
                 </div>
 
                 <label for="pass_id_2" class="col-1 col-form-label text-md-right">Password</label>
                 <div class="col-3">
-                    <input type="password" id="pass_id_2" class="form-control">
+                    <input type="password" id="pass2" name="pass2" class="form-control">
                 </div>
             </div>
 
@@ -70,13 +70,13 @@
                     <div class="form-group row ">
                         <label for="mail" class="col-md-4 col-form-label text-md-right">Mail</label>
                         <div class="col-md-8">
-                            <input type="mail" id="mail" class="form-control">
+                            <input type="mail" id="mail" class="form-control" name="mail">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="Credito" class="col-md-4 col-form-label text-md-right">Credito</label>
                         <div class="col-md-4">
-                            <input type="number" min="0" max="10" step="2" value="0" size="10">
+                            <input type="number" id="credito" name="credito" min="0" max="10" step="2" value="0" size="10">
                         </div>
                         <label for="provincia" class="col-md-4 col-form-label text-md-right">Provincia</label>
                     </div>
