@@ -1,5 +1,14 @@
 const Estado = {
-    NUEVO: 'Nuevo',
-    BUENO: 'Bueno',
-    MALO: 'malo'
+    Nuevo: 'Nuevo',
+    Bueno: 'Bueno',
+    Malo: 'Malo'
 }
+
+obtenerEstado = (estado) => {
+    try {
+        return Estado.estado;
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = { obtenerEstado };

@@ -17,5 +17,4 @@ createUsuario = (nombre, apellidos, usuario, clave, credito, provincia, mail) =>
         console.log(error);
     }
 }
-
 module.exports = { createUsuario };

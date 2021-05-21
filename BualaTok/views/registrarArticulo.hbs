@@ -32,37 +32,37 @@
 
 
     <div class="container">
-        <form name="my-form" onsubmit="" action="" method="">
+        <form name="my-form" onsubmit="" action="/registrarArticulo" method="POST">
             <div class="form-group row">
                 <label for="full_name" class="col-2 col-form-label text-right">Nombre</label>
                 <div class="col-8">
-                    <input type="text" id="full_name" class="form-control" name="full-name">
+                    <input type="text" id="name" class="form-control" name="name">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="descripcion" class="col-md-2 col-form-label text-md-right">Descripcion</label>
                 <div class="col-md-8">
-                    <textarea class="form-control" rows="3" id="descripcion"></textarea>
+                    <textarea class="form-control" rows="3" id="descripcion" name="descripcion"></textarea>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="form-group col-md-6">
                     <div class="form-group row">
-                        <label for="Credito" class="col-md-4 col-form-label text-md-right">Credito</label>
+                        <label for="Precio" class="col-md-4 col-form-label text-md-right">Precio</label>
                         <div class="col-md-4">
-                            <input type="number" min="0" max="10" step="2" value="0" size="10">
+                            <input type="number" id="precio" name="precio" min="0" max="10" step="2" value="0" size="10">
                         </div>
-                        <label for="provincia" class="col-md-4 col-form-label text-md-right">Foto</label>
+                        <label for="Foto" class="col-md-4 col-form-label text-md-right">Foto</label>
                     </div>
                     <div class="form-group row">
                         <label for="categoria" class="col-md-4 col-form-label text-md-right">Categoria</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="categoria">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                            <select class="form-control" id="categoria" name="categoria">
+                                <option>Hogar</option>
+                                <option>Electronica</option>
+                                <option>Videojuegos</option>
+                                <option>Automoviles</option>
                             </select>
                         </div>
                     </div>
@@ -72,17 +72,17 @@
                             <legend id="legendReg">Estado</legend>
                             <div class="form-check" >
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optradio">Nuevo
+                                    <input type="radio" class="form-check-input" name="optradio" id="optradio">Nuevo
                                 </label>
                             </div>
                             <div class="form-check" id="centrador">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optradio">Bueno
+                                    <input type="radio" class="form-check-input" name="optradio" id="optradio">Bueno
                                 </label>
                             </div>
                             <div class="form-check" id="centrador">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optradio">Malo
+                                    <input type="radio" class="form-check-input" name="optradio" id="optradio">Malo
                                 </label>
                             </div>
                         </fieldset>
