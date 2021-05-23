@@ -28,8 +28,9 @@ router.post("/login", (req, res, next) => {
       if (results.length > 0) {
         var pass = results[0].CLAVE;
         if(pass==password){
-          var bienvenido = 'Bienvenido: ' + username;
-          res.render('index', { title: bienvenido, contrasena: password});
+         // var bienvenido = 'Bienvenido: ' + username;
+          //res.render('hud', { title: bienvenido, contrasena: password});
+          res.redirect('/hud');
         } else{
             res.redirect('/login');
         }
