@@ -10,7 +10,7 @@ router.get("/login", function (req, res, next) {
   //conexion.query(sql, (error, results) => {
   //if (error) throw error;
   //});
-  res.render("sigIn", {});
+  res.render("sigIn", {layout: 'noLoggued' });
 });
 
 router.post("/login", (req, res, next) => {

@@ -10,7 +10,7 @@ const user = require("../public/models/Usuario");
 
 
 router.get('/registrarUsuario', function (req, res, next) {
-    res.render('registrarUsuario', {});
+    res.render('registrarUsuario', {layout: 'noLoggued' });
 });
 
 router.post("/registrarUsuario", function (req, res, next) {
