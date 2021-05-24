@@ -19,4 +19,19 @@ createArticulo = (nombre, precio, descripcion, foto, fecha, categoria, estado, i
         console.log(error);
     }
 }
-module.exports = { createArticulo };
+
+listarArticulos = (results) => {
+    try {
+        var lista = [];
+
+        results.forEach(i => {
+            var articulo = new Articulo(i.nombre, i.precio, i.descripcion, i.foto, i.fecha, i.categoria, i.estado, i.idUsuario);
+            articulo.visualizaciones = i.visualizaciones;
+            lista.push(articulo);
+        });
+        return lista;
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = { createArticulo, listarArticulos };

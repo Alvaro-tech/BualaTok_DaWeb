@@ -33,9 +33,9 @@ router.get('/registrarProducto', function(req, res, next) {
 });
 */
 
-router.get('/buscador', function(req, res, next) {
+/*router.get('/buscador', function(req, res, next) {
   res.render('buscador', {});
-});
+});*/
 
 /*
 // ### POST methods ###
