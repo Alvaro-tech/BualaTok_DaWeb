@@ -17,6 +17,6 @@ router.get('/buscador', function(req, res, next) {
             console.log(articulos)
             res.render('buscador', {articulos});
     })   
-  });
+});
 
 module.exports = router;

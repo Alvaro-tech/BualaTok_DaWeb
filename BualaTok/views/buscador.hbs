@@ -46,16 +46,31 @@
          </div> 
          <div class="row">
             {{#each articulos}}
-               <div class="col-md-4 mb-3">
+               <div class="col-md-6 mb-6">
                <div class="card text-center">
                   <div class="card-body">
-                     <h3 class="card-title text-capitalize">
-                     {{foto}}
-                     </h3>
-                     <p class="m-2">{{nombre}}</p>
-                     <a href="/contacts/edit/#" class="btn btn-secondary mb-2">Comprar</a>
-                     <a href="/contacts/delete/#" class="btn btn-danger mb-2">Cambiar</a>
+                     <div class="row">
+                        <div class="col-3">
+                           <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
+                        </div>
+                        <div class="col-6">
+                           <div>
+                              <b class="m-2">{{nombre}}</b>
+                           </div>
+                           <div>
+                              <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
+                           </div>
+                        </div>
+                        <div class="col-3">
+                           <div>
+                              <b>{{precio}} €</b>
+                           </div>
+                           <a href="/contacts/edit/#" class="btn btn-secondary mb-2">Comprar</a>
+                           <a href="/contacts/delete/#" class="btn btn-danger mb-2">Cambiar</a>
+                        </div> 
+                     </div>
                   </div>
+                  <br>
                </div>
                </div>
             {{else}}
