@@ -17,4 +17,18 @@ createUsuario = (nombre, apellidos, usuario, clave, credito, provincia, mail) =>
         console.log(error);
     }
 }
-module.exports = { createUsuario };
+
+listarUsuarios = (results) => {
+    try {
+        var lista = [];
+
+        results.forEach(i => {
+            var usuario = new Usuario(i.nombre, i.apellidos, i.usuario, i.clave, i.credito, i.provincia, i.mail);
+            lista.push(usuario);
+        });
+        return lista;
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = { createUsuario, listarUsuarios };
