@@ -9,6 +9,7 @@ class Articulo {
     this.estado = estado;
     this.idUsuario = idUsuario;
     this.visualizaciones = 0;
+    this.idArticulo = 0;
     }
 }
 
@@ -27,6 +28,7 @@ listarArticulos = (results) => {
         results.forEach(i => {
             var articulo = new Articulo(i.nombre, i.precio, i.descripcion, i.foto, i.fecha, i.categoria, i.estado, i.idUsuario);
             articulo.visualizaciones = i.visualizaciones;
+            articulo.idArticulo = i.idArticulo;
             lista.push(articulo);
         });
         return lista;

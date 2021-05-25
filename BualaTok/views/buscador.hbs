@@ -44,7 +44,7 @@
                </div>
             </div>
          </div> 
-         <div class="row">
+         <div class="row scroll" style="max-height: 600px; overflow-y: auto;">
             {{#each articulos}}
                <div class="col-md-6 mb-6">
                <div class="card text-center">
@@ -65,7 +65,7 @@
                            <div>
                               <b>{{precio}} €</b>
                            </div>
-                           <a href="/contacts/edit/#" class="btn btn-secondary mb-2">Comprar</a>
+                           <a id='btn_Comprar' onClick = "show({{idArticulo}})" class="btn btn-secondary mb-2">Comprar</a>
                            <a href="/contacts/delete/#" class="btn btn-danger mb-2">Cambiar</a>
                         </div> 
                      </div>
@@ -84,5 +84,6 @@
          </div>    
       </div>
    </body>
+   <script src="scripts/buscador.js" type="module"></script>
 </html>
 
