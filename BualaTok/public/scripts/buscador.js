@@ -1,14 +1,17 @@
+//import {conexion} from './index'
+//const Provincia = require("../public/models/Provincia");
+//import { createUsuario } from '../public/models/Usuario';
 /*
 document.getElementById('btn_Comprar').addEventListener('click', function(e) {
     console.log('button was clicked');
 });
 */
 
-window.show= show;
+window.show = show;
 
-function show(idArt){
-    console.log('%%%% > '+ idArt);
-    }
+function show(idArt) {
+  console.log('%%%% > ' + idArt);
+}
 
 /*
 let devolverProducto = new Promise((resolve, reject) => {

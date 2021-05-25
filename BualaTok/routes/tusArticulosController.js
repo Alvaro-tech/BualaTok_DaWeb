@@ -9,9 +9,10 @@ var bodyParser = require("body-parser");
 
 
 router.get('/tusArticulos', function(req, res, next) {
-    var sql = ('SELECT * FROM daweb.articulo');
+    var sql = ('SELECT * FROM daweb.articulo where idUsuario = ?;');
+    var paramet = [req.session.idUser];
     const rows = conexion.query(
-        sql,(error, results) => {
+        sql,paramet,(error, results) => {
             console.log(results)
             var articulos = Articulo.listarArticulos(results);
             console.log(articulos)

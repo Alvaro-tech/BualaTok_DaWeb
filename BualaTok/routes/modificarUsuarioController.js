@@ -10,9 +10,10 @@ const user = require("../public/models/Usuario");
 
 
 router.get('/modificarUsuario', function(req, res, next) {
-    var sql = ('SELECT * FROM daweb.usuario WHERE IDUSUARIO = 1;');
+    var sql = ('SELECT * FROM daweb.usuario WHERE IDUSUARIO = ?;');
+    var paramet = [req.session.idUser];
     const rows = conexion.query(
-        sql,(error, results) => {
+        sql,paramet,(error, results) => {
             var usuarios = user.listarUsuarios(results);
             var usuario = usuarios[0];
             console.log(usuario);
@@ -45,13 +46,13 @@ router.post("/modificarUsuario", function (req, res, next) {
 
             if (password_1 != password_2) {
                 res.redirect('/modificarUsuario');
-            } else if (usuariobasedatos == username && results[0].IDUSUARIO != "1") {
+            } else if (usuariobasedatos == username && results[0].IDUSUARIO != req.session.idUser) {
                 res.redirect('/modificarUsuario');
             } else {
                 var usuario = user.createUsuario(nombre, apellidos, username, password_1, credito, "Murcia", mail);
                 console.log(usuario);
-                var sql = ('UPDATE daweb.usuario SET ? WHERE IDUSUARIO = 1');
-                var paramet = [usuario];
+                var sql = ('UPDATE daweb.usuario SET ? WHERE IDUSUARIO = ?');
+                var paramet = [usuario, req.session.idUser];
                 const rows = conexion.query(
                     sql, paramet, (error, results) => {
                         console.log(results);
