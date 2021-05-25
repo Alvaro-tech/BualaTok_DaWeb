@@ -37,6 +37,7 @@ app.use(require('./routes/registrarUsuarioController'));
 app.use(require('./routes/registrarArticuloController'));
 app.use(require('./routes/hudController'));
 app.use(require('./routes/buscadorController'));
+app.use(require('./routes/tusArticulosController'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
