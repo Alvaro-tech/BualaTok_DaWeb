@@ -16,10 +16,12 @@ router.get("/login", function (req, res, next) {
 router.post("/login", (req, res, next) => {
   var username = req.body.username;
   var password = req.body.password;
+  console.log(req.session.idUser);
+
   console.log("Hago el post");
 
   //var sql = "SELECT CLAVE FROM daweb.usuario WHERE usuario = " + "'" + username + "'";
-  var sql = ('SELECT CLAVE FROM daweb.usuario WHERE usuario = ?;');
+  var sql = ('SELECT CLAVE, IDUSUARIO FROM daweb.usuario WHERE usuario = ?;');
   var paramet = [username];
   const rows = conexion.query(
     sql,paramet,(error, results) => {
@@ -30,6 +32,7 @@ router.post("/login", (req, res, next) => {
         if(pass==password){
          // var bienvenido = 'Bienvenido: ' + username;
           //res.render('hud', { title: bienvenido, contrasena: password});
+          req.session.idUser = results[0].IDUSUARIO;
           res.redirect('/hud');
         } else{
             res.redirect('/login');

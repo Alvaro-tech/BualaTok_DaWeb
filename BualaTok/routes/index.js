@@ -21,7 +21,7 @@ const conexion = mysql.createConnection(
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express', idUser: req.session.idUser });
 });
 
 /*router.get('/registrarUsuario', function(req, res, next) {
