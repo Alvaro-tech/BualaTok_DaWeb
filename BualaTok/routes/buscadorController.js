@@ -8,8 +8,9 @@ var bodyParser = require("body-parser");
 
 router.get("/buscador", function (req, res, next) {
   console.log("Entra a buscador");
-  var sql = "SELECT * FROM daweb.articulo";
-  const rows = conexion.query(sql, (error, results) => {
+  var sql = "SELECT * FROM daweb.articulo WHERE idUsuario <> ?";
+  var paramet = [req.session.idUser];
+  const rows = conexion.query(sql, paramet, (error, results) => {
     console.log(results);
     var articulos = Articulo.listarArticulos(results);
     console.log(articulos);
@@ -65,6 +66,84 @@ router.get("/comprar/:idArt", function (req, res, next) {
       );
       res.status(200);
     });
+  });
+});
+
+
+router.post("/busqueda", function (req, res, next) {
+  var texto = req.body.texto;
+  var estado = req.body.estado;
+  var precioMinimo = req.body.precioMinimo;
+  var precioMaximo = req.body.precioMaximo;
+  var categoria = req.body.categoria;
+
+  console.log(texto, estado, precioMinimo, precioMaximo, categoria);
+
+  var sql = "SELECT * FROM daweb.articulo WHERE ";
+  var primero = true;
+
+  if(texto!=""){
+    if(primero){
+      sql += "nombre LIKE '%" + texto + "%' "
+      primero = false;
+    }
+  }
+
+  console.log(sql);
+
+  if(estado!=""){
+    if(primero){
+      sql += "estado = '" + estado + "' ";
+      primero = false;
+    }else{
+      sql += "AND estado = '" + estado + "' ";
+    }
+  }
+
+  if(precioMinimo!=""){
+    if(primero){
+      sql += "precio >= " + precioMinimo + " ";
+      primero = false;
+    }else{
+      sql += "AND precio >= " + precioMinimo + " ";
+    }
+  }
+
+  if(precioMaximo!=""){
+    if(primero){
+      sql += "precio <= " + precioMaximo + " ";
+      primero = false;
+    }else{
+      sql += "AND precio <= " + precioMaximo + " ";
+    }
+  }
+
+  if(categoria!=""){
+    if(primero){
+      sql += "categoria = '" + categoria + "' ";
+      primero = false;
+    }else{
+      sql += "AND categoria = '" + categoria + "' ";
+    }
+  }
+
+  if(primero){
+    sql += "idUsuario <> '" + req.session.idUser + "' ";
+    primero = false;
+  }else{
+    sql += "AND idUsuario <> '" + req.session.idUser + "' ";
+  }
+
+  console.log(sql);
+
+  const rows = conexion.query(sql, (error, results) => {
+    if(error){
+      console.log(error);
+    }
+    //console.log(results);
+    var articulos = Articulo.listarArticulos(results);
+    //console.log(articulos);
+    res.render("buscador", { articulos });
   });
 });
 

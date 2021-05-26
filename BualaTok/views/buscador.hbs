@@ -9,10 +9,10 @@
       <div class="card mx-auto" style="width: 80%; padding: 10px;">
          <div class="card-body">
             <h5 class="card-title">Buscador</h5>
-            <div>
+            <form name="my-form" onsubmit="" action="/busqueda" method="POST">
                <div class="input-group rounded">
                   <input type="search" class="form-control rounded" placeholder="Texto" aria-label="Texto"
-                     aria-describedby="search-addon" />
+                     aria-describedby="search-addon" id="texto" name="texto"/>
                   <span class="input-group-text border-0" id="texto-addon">
                      <i class="fas fa-search"></i>
                   </span>
@@ -20,27 +20,28 @@
                <span style="padding: 1px">
                   <div class="input-group rounded">
                      <input type="search" class="form-control rounded" placeholder="Estado" aria-label="Estado"
-                        aria-describedby="search-addon" />
+                        aria-describedby="search-addon" name="estado" />
                      <span class="input-group-text border-0" id="estado-addon">
                         <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Precio Minimo" aria-label="premin"
-                        aria-describedby="search-addon" />
+                        aria-describedby="search-addon" name="precioMinimo"/>
                      <span class="input-group-text border-0" id="premin-addon">
                         <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Precio Maximo" aria-label="premax"
-                        aria-describedby="search-addon" />
+                        aria-describedby="search-addon" name="precioMaximo"/>
                      <span class="input-group-text border-0" id="premax-addon">
                         <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Categoria" aria-label="categoria"
-                        aria-describedby="search-addon" style="width: 40%;" />
+                        aria-describedby="search-addon" style="width: 40%;" name="categoria"/>
                      <span class="input-group-text border-0" id="categoria-addon">
                         <i class="fas fa-search"></i>
                      </span>
                </span>
-            </div>
+               <button id="buttonBusqueda" type="submit" class="btn btn-primary">Buscar</button>
+            </form>
          </div>
       </div>
       <div class="row scroll" style="max-height: 600px; overflow-y: auto;">
@@ -51,6 +52,9 @@
                   <div class="row">
                      <div class="col-3">
                         <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
+                        <div>
+                           <b>{{estado}}</b>
+                        </div>
                      </div>
                      <div class="col-6">
                         <div>
