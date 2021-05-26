@@ -19,7 +19,7 @@ router.post("/registrarArticulo", function (req, res, next) {
     var categoria = req.body.categoria;
     var estado = req.body.estado;
 
-    var idUsuario = '1';
+    var idUsuario = req.session.idUser;
 
     var foto = 'foto.jpg';
     var f = new Date();

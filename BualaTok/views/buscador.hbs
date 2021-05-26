@@ -1,13 +1,12 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
-   <body>
-      <div class="mx-auto" style="margin: 50px;">
-         <div class="container" style="text-align: center;  padding: 20px; ">
-            <i class="fas fa-search-dollar fa-6x"></i>
-         </div>
-         <div class="card mx-auto" style="width: 80%; padding: 10px;">
+
+<body>
+   <div class="mx-auto" style="margin: 50px;">
+      <div class="container" style="text-align: center;  padding: 20px; ">
+         <i class="fas fa-search-dollar fa-6x"></i>
+      </div>
+      <div class="card mx-auto" style="width: 80%; padding: 10px;">
          <div class="card-body">
             <h5 class="card-title">Buscador</h5>
             <div>
@@ -15,75 +14,96 @@
                   <input type="search" class="form-control rounded" placeholder="Texto" aria-label="Texto"
                      aria-describedby="search-addon" />
                   <span class="input-group-text border-0" id="texto-addon">
-                  <i class="fas fa-search"></i>
+                     <i class="fas fa-search"></i>
                   </span>
                </div>
-               <span style="padding: 1px" >
+               <span style="padding: 1px">
                   <div class="input-group rounded">
                      <input type="search" class="form-control rounded" placeholder="Estado" aria-label="Estado"
                         aria-describedby="search-addon" />
                      <span class="input-group-text border-0" id="estado-addon">
-                     <i class="fas fa-search"></i>
+                        <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Precio Minimo" aria-label="premin"
                         aria-describedby="search-addon" />
                      <span class="input-group-text border-0" id="premin-addon">
-                     <i class="fas fa-search"></i>
+                        <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Precio Maximo" aria-label="premax"
                         aria-describedby="search-addon" />
                      <span class="input-group-text border-0" id="premax-addon">
-                     <i class="fas fa-search"></i>
+                        <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Categoria" aria-label="categoria"
-                        aria-describedby="search-addon" style="width: 40%;"/>
+                        aria-describedby="search-addon" style="width: 40%;" />
                      <span class="input-group-text border-0" id="categoria-addon">
-                     <i class="fas fa-search"></i>
+                        <i class="fas fa-search"></i>
                      </span>
                </span>
-               </div>
             </div>
-         </div> 
-         <div class="row scroll" style="max-height: 600px; overflow-y: auto;">
-            {{#each articulos}}
-               <div class="col-md-6 mb-6">
-               <div class="card text-center">
-                  <div class="card-body">
-                     <div class="row">
-                        <div class="col-3">
-                           <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
+         </div>
+      </div>
+      <div class="row scroll" style="max-height: 600px; overflow-y: auto;">
+         {{#each articulos}}
+         <div class="col-md-6 mb-6">
+            <div class="card text-center">
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col-3">
+                        <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
+                     </div>
+                     <div class="col-6">
+                        <div>
+                           <b class="m-2">{{nombre}}</b>
                         </div>
-                        <div class="col-6">
-                           <div>
-                              <b class="m-2">{{nombre}}</b>
-                           </div>
-                           <div>
-                              <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
-                           </div>
+                        <div>
+                           <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
                         </div>
-                        <div class="col-3">
-                           <div>
-                              <b>{{precio}} €</b>
-                           </div>
-                           <a id='btn_Comprar' onClick = "show({{idArticulo}})" class="btn btn-secondary mb-2">Comprar</a>
-                           <a href="/contacts/delete/#" class="btn btn-danger mb-2">Cambiar</a>
-                        </div> 
+                     </div>
+                     <div class="col-3">
+                        <div>
+                           <b>{{precio}} €</b>
+                        </div>
+                        <a id='btn_Comprar' onClick="show({{idArticulo}})" class="btn btn-secondary mb-2">Comprar</a>
+                        <a href="/contacts/delete/#" class="btn btn-danger mb-2">Cambiar</a>
                      </div>
                   </div>
-                  <br>
                </div>
-               </div>
-            {{else}}
-               <div class="col-md-4 mx-auto">
-                  <div class="card card-body text-center">
-                     <p>No hay articulos disponibles</p>
-                     <a href="/contacts/add">Add One!</a>
-                  </div>
-               </div>
-            {{/each}}
-         </div>    
+               <br>
+            </div>
+         </div>
+         {{else}}
+         <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+               <p>No hay articulos disponibles</p>
+               <a href="/contacts/add">Add One!</a>
+            </div>
+         </div>
+         {{/each}}
       </div>
-   </body>
-   <script src="scripts/buscador.js" type="module"></script>
-</html>
+   </div>
 
+   <div class="modal" tabindex="-1" role="dialog" id="idAlertaCompra">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title">Confirmar compra</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <p>¿Esta seguro que desea comprar este artículo?</p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-primary" id="idBotonConfirmar" onclick="comprar()">Comprar</button>
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</body>
+<script src="scripts/buscador.js" type="module"></script>
+
+</html>
