@@ -33,7 +33,7 @@ router.post("/login", (req, res, next) => {
          // var bienvenido = 'Bienvenido: ' + username;
           //res.render('hud', { title: bienvenido, contrasena: password});
           req.session.idUser = results[0].IDUSUARIO;
-          res.redirect('/hud');
+          res.redirect('/tusArticulos');
         } else{
             res.redirect('/login');
         }
