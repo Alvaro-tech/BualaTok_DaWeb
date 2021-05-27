@@ -11,9 +11,7 @@ router.get("/buscador", function (req, res, next) {
   var sql = "SELECT * FROM daweb.articulo WHERE idUsuario <> ?";
   var paramet = [req.session.idUser];
   const rows = conexion.query(sql, paramet, (error, results) => {
-    console.log(results);
     var articulos = Articulo.listarArticulos(results);
-    console.log(articulos);
     res.render("buscador", { articulos });
   });
 });
@@ -45,7 +43,6 @@ router.get("/comprar/:idArt", function (req, res, next) {
       paramet = [nuevoCredito, idUser];
       const rows2 = conexion.query(
         sql, paramet, (error, results) => {
-          console.log(results);
         }
       );
 
@@ -53,7 +50,6 @@ router.get("/comprar/:idArt", function (req, res, next) {
       paramet = [articuloPrecio, articuloIDComprador];
       const rows3 = conexion.query(
         sql, paramet, (error, results) => {
-          console.log(results);
         }
       );
 
@@ -61,7 +57,6 @@ router.get("/comprar/:idArt", function (req, res, next) {
       paramet = [idArt];
       const rows4 = conexion.query(
         sql, paramet, (error, results) => {
-          console.log(results);
         }
       );
       res.status(200);
@@ -77,8 +72,6 @@ router.post("/busqueda", function (req, res, next) {
   var precioMaximo = req.body.precioMaximo;
   var categoria = req.body.categoria;
 
-  console.log(texto, estado, precioMinimo, precioMaximo, categoria);
-
   var sql = "SELECT * FROM daweb.articulo WHERE ";
   var primero = true;
 
@@ -88,8 +81,6 @@ router.post("/busqueda", function (req, res, next) {
       primero = false;
     }
   }
-
-  console.log(sql);
 
   if(estado!=""){
     if(primero){
@@ -138,7 +129,6 @@ router.post("/busqueda", function (req, res, next) {
 
   const rows = conexion.query(sql, (error, results) => {
     if(error){
-      console.log(error);
     }
     //console.log(results);
     var articulos = Articulo.listarArticulos(results);

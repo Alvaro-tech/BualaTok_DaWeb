@@ -13,9 +13,7 @@ router.get('/tusArticulos', function(req, res, next) {
     var paramet = [req.session.idUser];
     const rows = conexion.query(
         sql,paramet,(error, results) => {
-            console.log(results)
             var articulos = Articulo.listarArticulos(results);
-            console.log(articulos)
             res.render('tusArticulos', {articulos});
     })   
 });
