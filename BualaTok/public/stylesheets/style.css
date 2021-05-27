@@ -3,6 +3,37 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.btn-gris {
+  background: #6C757D;
+  border-color: #6C757D;
+  color:rgb(255, 255, 255);
+  margin-left: 15px;
+}
+
+.btn-rojo {
+  background: #DC3545;
+  border-color: #DC3545;
+  color:rgb(255, 255, 255);
+  margin-left: 15px;
+}
+
+.colorfondo {
+  background-color: #40474F;
+}
+
+.carta {
+  border-width: 10px;
+  border-color: #343a40;
+  width: 80%; 
+  height: 80%;
+  padding: 10px;
+}
+
+.cartascroll {
+  max-height: 600px; 
+  overflow-y: auto;
+}
+
 a {
   color: #00B7FF;
 }

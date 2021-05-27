@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<body>
+<body class="colorfondo">
    <div class="mx-auto" style="margin: 50px;">
       <div class="container" style="text-align: center;  padding: 20px; ">
          <i class="fas fa-search-dollar fa-6x"></i>
       </div>
-      <div class="card mx-auto" style="width: 80%; padding: 10px;">
+      <div class="card mx-auto carta">
          <div class="card-body">
             <h5 class="card-title">Buscador</h5>
             <form name="my-form" onsubmit="" action="/busqueda" method="POST">
@@ -40,11 +40,11 @@
                         <i class="fas fa-search"></i>
                      </span>
                </span>
-               <button id="buttonBusqueda" type="submit" class="btn btn-primary">Buscar</button>
+               <button id="buttonBusqueda" type="submit" class="btn btn-gris" style="margin-left: 0;">Buscar</button>
             </form>
          </div>
       </div>
-      <div class="row scroll" style="max-height: 600px; overflow-y: auto;">
+      <div class="row scroll cartascroll">
          {{#each articulos}}
          <div class="col-md-6 mb-6">
             <div class="card text-center">
@@ -68,8 +68,8 @@
                         <div>
                            <b>{{precio}} €</b>
                         </div>
-                        <a id='btn_Comprar' onClick="show({{idArticulo}})" class="btn btn-secondary mb-2">Comprar</a>
-                        <a href="/contacts/delete/#" class="btn btn-danger mb-2">Cambiar</a>
+                        <button id='btn_Comprar' onClick="show({{idArticulo}})" class="btn btn-gris mb-2">Comprar</button>
+                        <a href="/contacts/delete/#" class="btn btn-rojo mb-2">Cambiar</a>
                      </div>
                   </div>
                </div>
@@ -77,10 +77,9 @@
             </div>
          </div>
          {{else}}
-         <div class="col-md-4 mx-auto">
+         <div class="col-md-4 mx-auto" style="margin-bottom: 20%;">
             <div class="card card-body text-center">
                <p>No hay articulos disponibles</p>
-               <a href="/contacts/add">Add One!</a>
             </div>
          </div>
          {{/each}}
@@ -100,8 +99,8 @@
                <p>¿Esta seguro que desea comprar este artículo?</p>
             </div>
             <div class="modal-footer">
-               <button type="button" class="btn btn-primary" id="idBotonConfirmar" onclick="comprar()">Comprar</button>
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+               <button type="button" class="btn btn-gris" id="idBotonConfirmar" onclick="comprar()">Comprar</button>
+               <button type="button" class="btn btn-rojo" data-dismiss="modal">Cancelar</button>
             </div>
          </div>
       </div>
