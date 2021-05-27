@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body>
+<body class="colorfondo">
     <br>
     <div class="well" id="centrador">
         <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
@@ -9,73 +9,82 @@
     <br>
 
 
-    <div class="container">
-        <form name="my-form" onsubmit="" action="/registrarArticulo" method="POST">
-            <div class="form-group row">
-                <label for="full_name" class="col-2 col-form-label text-right">Nombre</label>
-                <div class="col-8">
-                    <input type="text" id="name" class="form-control" name="name">
+    <div class="card mx-auto carta" style="width: 60%;">
+        <div class="card-body">
+            <div class="container justify-content-center">
+                <br>
+                <h3 class="text-center text-dark">Registrar Artículo</h3>
+                <br>
+            <form name="my-form" onsubmit="" action="/registrarArticulo" method="POST">
+                <div class="form-group row">
+                    <label for="full_name" class="col-2 col-form-label text-right etiqueta">Nombre</label>
+                    <div class="col-8">
+                        <input type="text" id="name" class="form-control" name="name">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="descripcion" class="col-md-2 col-form-label text-md-right">Descripcion</label>
-                <div class="col-md-8">
-                    <textarea class="form-control" rows="3" id="descripcion" name="descripcion"></textarea>
+                <div class="form-group row">
+                    <label for="descripcion" class="col-md-2 col-form-label text-md-right etiqueta">Descripcion</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" rows="3" id="descripcion" name="descripcion"></textarea>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="form-group col-md-6">
-                    <div class="form-group row">
-                        <label for="Precio" class="col-md-4 col-form-label text-md-right">Precio</label>
-                        <div class="col-md-4">
-                            <input type="number" id="precio" name="precio" min="0" max="1000" step="2" value="0" size="10">
-                        </div>
-                        <label for="Foto" class="col-md-4 col-form-label text-md-right">Foto</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="categoria" class="col-md-4 col-form-label text-md-right">Categoria</label>
-                        <div class="col-md-8">
-                            <select class="form-control" id="categoria" name="categoria">
-                                <option>Hogar</option>
-                                <option>Electronica</option>
-                                <option>Videojuegos</option>
-                                <option>Automoviles</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row" id="centrador">
-                        <label for="estado" class="col-md-4 col-form-label text-md-right"></label>
-                        <fieldset id="fieldsetReg" class="col-md-8">
-                            <legend id="legendReg">Estado</legend>
-                            <input type="radio" name="estado" id="estado" value="Nuevo"> Nuevo<br>
-                            <input type="radio" name="estado" id="estado" value="Bueno"> Bueno<br>
-                            <input type="radio" name="estado" id="estado" value="Malo"> Malo<br> 
-                        </fieldset>
-                    </div>
-                    <br>
-                    <div class="form-group row" style="margin-left: 180px;">
-                        <button id="buttonReg" type="submit"  class="btn btn-primary">Cancelar</button>
-                        <button id="buttonReg" type="submit"  class="btn btn-primary">Aceptar</button>
-                    </div>
-                </div> 
-                <div class="form-group col-md-6">
-                    <div class="form-group row">
-                        <div class="col-sm-6">
-                            <img class="img-rounded" src="images/FlorRoja.jpg" alt="Card image" width="270" height="320">
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group row">
-                                <input type="image" src="images/download.png" name="saveForm" class="btTxt submit" id="saveForm" width="80" height="80"/>
+                <div class="form-group row">
+                    <div class="form-group col-md-6">
+                        <div class="form-group row">
+                            <label for="Precio" class="col-md-4 col-form-label text-md-right etiqueta">Precio</label>
+                            <div class="col-md-4">
+                                <input type="number" id="precio" name="precio" min="0" max="1000" step="2" value="0" size="10" class="etiqueta" style="margin-top: 5px;">
                             </div>
-                            <div class="form-group row">
-                                <input type="image" src="images/cancelar.png" name="saveForm" class="btTxt submit" id="saveForm" width="80" height="80"/>
+                            <label for="Foto" class="col-md-4 col-form-label text-md-right etiqueta">Foto</label>
+                        </div>
+                        <div class="form-group row">
+                            <label for="categoria" class="col-md-4 col-form-label text-md-right etiqueta">Categoria</label>
+                            <div class="col-md-8">
+                                <select class="form-control etiqueta" id="categoria" name="categoria">
+                                    <option>Hogar</option>
+                                    <option>Electronica</option>
+                                    <option>Videojuegos</option>
+                                    <option>Automoviles</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="estado" class="col-md-4 col-form-label text-md-right"></label>
+                            <fieldset class="col-md-8 etiqueta">
+                                <legend class="etiqueta">Estado</legend>
+                                <input class="fieldsetcentrada" type="radio" name="estado" id="estado" value="Nuevo"> Nuevo<br>
+                                <input class="fieldsetcentrada" type="radio" name="estado" id="estado" value="Bueno"> Bueno<br>
+                                <input class="fieldsetcentrada" type="radio" name="estado" id="estado" value="Malo"> Malo<br>
+                            </fieldset>
+                        </div>
+                        <br>
+                        <div class="form-group row" style="margin-left: 180px;">
+                            <button type="submit" class="btn btn-gris">Aceptar</button>
+                            <button type="submit" class="btn btn-rojo" style="margin-left: 50px;">Cancelar</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <img class="img-rounded" src="images/FlorRoja.jpg" alt="Card image" width="270"
+                                    height="320">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <input type="image" src="images/download.png" name="saveForm" class="btTxt submit"
+                                        id="saveForm" width="80" height="80" />
+                                </div>
+                                <div class="form-group row">
+                                    <input type="image" src="images/cancelar.png" name="saveForm" class="btTxt submit"
+                                        id="saveForm" width="80" height="80" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 
