@@ -29,6 +29,18 @@ body {
   padding: 10px;
 }
 
+.cartalogin {
+  border-width: 10px;
+  border-color: #343a40;
+  width: 60%; 
+  height: 40%;
+  padding: 10px;
+}
+
+.etiqueta {
+  font-size: large;
+}
+
 .cartascroll {
   max-height: 600px; 
   overflow-y: auto;

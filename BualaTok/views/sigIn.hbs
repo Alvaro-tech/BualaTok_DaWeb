@@ -1,92 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>Sign in</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <h3 class="text-center text-black pt-5">BualaTok</h3>
-    <h4 class="text-center text-black pt-5">
-      La web para comprar y cambiar lo que te sobra
-    </h4>
-      <div class="card">
-        <div
-          id="login-row"
-          class="row justify-content-center align-items-center"
-        >
-          <div id="login-column" class="col-md-6">
-            <div id="login-box" class="col-md-12">
-              <form id="login-form" class="form" action="/login" method="POST">
-                <h3 class="text-center text-info">Login</h3>
-                <div class="form-group">
-                  <label for="username" class="text-info">Usuario:</label
-                  ><br />
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="password" class="text-info">Password:</label
-                  ><br />
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="remember-me" class="text-info"
-                    ><span>Recuerdame</span> <span
-                      ><input
-                        id="remember-me"
-                        name="remember-me"
-                        type="checkbox" /></span></label
-                  ><br />
-                  <input
-                    type="submit"
-                    name="submit_Aceptar"
-                    class="btn btn-info btn-md"
-                    value="Aceptar"
-                    id="btn_aceptar"
-                  /> 
-                </div>
-                <div id="register-link" class="text-right">
-                  <a href="/registrarUsuario" class="text-info">Registrarse</a>
-                </div>
-              </form>
+
+<body class="colorfondo">
+  <h2 class="text-center text-white pt-5">BualaTok</h2>
+  <h3 class="text-center text-white pt-5">
+    La web para comprar y cambiar lo que te sobra
+  </h3>
+  <br>
+  <div class="card mx-auto cartalogin">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+          <form id="login-form" class="form" action="/login" method="POST">
+            <br>
+            <h3 class="text-center text-dark">Login</h3>
+            <div class="form-group">
+              <label for="username" class="text-dark">Usuario:</label><br />
+              <input type="text" name="username" id="username" class="form-control" />
             </div>
-          </div>
+            <div class="form-group">
+              <label for="password" class="text-dark">Password:</label><br />
+              <input type="password" name="password" id="password" class="form-control" />
+            </div>
+            <div class="form-group">
+              <br />
+              <input type="submit" name="submit_Aceptar" class="btn btn-rojo btn-md" style="margin-left: 0px;"
+                value="Aceptar" id="btn_aceptar" />
+            </div>
+            <div id="register-link" class="text-right">
+              <a href="/registrarUsuario" class="text-dark">Regístrese aquí</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-     <button id="myButton">Click me!</button>
-  </body>
-  <script src="scripts/login.js" type="module"></script>
-  <script src="scripts/mySQLController.js" type="module"></script>
+  </div>
+  </div>
+</body>
+<script src="scripts/login.js" type="module"></script>
+
 </html>

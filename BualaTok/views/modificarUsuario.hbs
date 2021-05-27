@@ -1,77 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body>
+<body class="colorfondo">
     <br>
     <div class="well" id="centrador">
         <img class="img-rounded" src="images/usuario.png" width="70" height="70" alt="Card image">
     </div>
     <br>
 
-    <div class="container">
-        <form name="my-form" onsubmit="" action="/modificarUsuario" method="POST">
-            <div class="form-group row">
-                <label for="full_name" class="col-2 col-form-label text-right">Nombre</label>
-                <div class="col-8">
-                    <input type="text" id="name" class="form-control" name="name" value="{{usuario.nombre}}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="apellidos_id" class="col-md-2 col-form-label text-md-right">Apellidos</label>
-                <div class="col-md-8">
-                    <input type="text" id="apellidos" class="form-control" name="apellidos" value="{{usuario.apellidos}}"></input>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="user_name" class="col-md-2 col-form-label text-md-right">Usuario</label>
-                <div class="col-md-4">
-                    <input type="text" id="username" class="form-control" name="username" value="{{usuario.usuario}}">
-                </div>
-            </div>
-
-            <div class="form-group row ">
-                <label for="pass_id" class="col-2 col-form-label text-md-right">Password</label>
-                <div class="col-4">
-                    <input type="password" id="pass1" name="pass1" class="form-control" value="{{usuario.clave}}">
-                </div>
-
-                <label for="pass_id_2" class="col-1 col-form-label text-md-right">Password</label>
-                <div class="col-3">
-                    <input type="password" id="pass2" name="pass2" class="form-control" value="{{usuario.clave}}">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="form-group col-md-6">
-                    <div class="form-group row ">
-                        <label for="mail" class="col-md-4 col-form-label text-md-right">Mail</label>
-                        <div class="col-md-8">
-                            <input type="mail" id="mail" class="form-control" name="mail" value="{{usuario.mail}}">
+    <div class="card mx-auto carta" style="width: 60%;">
+        <div class="card-body">
+            <div class="container justify-content-center">
+                <br>
+                <h3 class="text-center text-dark">Registro</h3>
+                <br>
+                <form name="my-form" onsubmit="" action="/modificarUsuario" method="POST">
+                    <div class="form-group row">
+                        <label for="full_name" class="col-2 col-form-label text-right etiqueta">Nombre</label>
+                        <div class="col-8">
+                            <input type="text" id="name" class="form-control" name="name" value="{{usuario.nombre}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="Credito" class="col-md-4 col-form-label text-md-right">Credito</label>
-                        <div class="col-md-4">
-                            <input type="number" id="credito" name="credito" min="0" max="1000" step="2" size="10" value="{{usuario.credito}}">
+                        <label for="apellidos_id" class="col-md-2 col-form-label text-md-right etiqueta">Apellidos</label>
+                        <div class="col-md-8">
+                            <input type="text" id="apellidos" class="form-control" name="apellidos" value="{{usuario.apellidos}}">
                         </div>
-                        <label for="provincia" class="col-md-4 col-form-label text-md-right">Provincia</label>
                     </div>
-                    <br><br>
-                    <div class="form-group row" style="margin-left: 180px;">
-                        <a href="/tusArticulos" id="buttonReg" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Cancelar</a>
-                        <button id="buttonReg" type="submit" class="btn btn-primary">Aceptar</button>
+
+                    <div class="form-group row">
+                        <label for="user_name" class="col-md-2 col-form-label text-md-right etiqueta">Usuario</label>
+                        <div class="col-md-4">
+                            <input type="text" id="username" class="form-control" name="username" value="{{usuario.usuario}}">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4432648.299397709!2d-6.980809435414803!3d39.899000773332126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc42e3783261bc8b%3A0xa6ec2c940768a3ec!2zRXNwYcOxYQ!5e0!3m2!1ses!2ses!4v1618675976538!5m2!1ses!2ses"
-                        width="350" height="200" style="border:0;" allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
-                </div>
+
+                    <div class="form-group row ">
+                        <label for="pass_id" class="col-2 col-form-label text-md-right etiqueta">Password</label>
+                        <div class="col-4">
+                            <input type="password" id="pass1" name="pass1" class="form-control" value="{{usuario.clave}}">
+                        </div>
+
+                        <label for="pass_id_2" class="col-2 col-form-label text-md-right etiqueta" style="margin-left: -95px;">Password</label>
+                        <div class="col-3">
+                            <input type="password" id="pass2" name="pass2" class="form-control" value="{{usuario.clave}}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group row ">
+                                <label for="mail" class="col-md-4 col-form-label text-md-right etiqueta">Mail</label>
+                                <div class="col-md-8">
+                                    <input type="mail" id="mail" class="form-control" name="mail" value="{{usuario.mail}}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Credito" class="col-md-4 col-form-label text-md-right etiqueta">Credito</label>
+                                <div class="col-md-4">
+                                    <input type="number" id="credito" name="credito" min="0" max="1000" step="2"
+                                        value="{{usuario.credito}}" size="10" class="etiqueta" style="margin-top: 5px;">
+                                </div>
+                                <label for="provincia" class="col-md-4 col-form-label text-md-right etiqueta">Provincia</label>
+                            </div>
+                            <br><br>
+                            <div class="form-group row" style="margin-left: 180px;">
+                                <button type="submit" class="btn btn-gris">Aceptar</button>
+                                <a href="/tusArticulos" class="btn btn-rojo" tabindex="-1" role="button"
+                                    aria-disabled="true" style="margin-left: 50px;">Cancelar</a>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4432648.299397709!2d-6.980809435414803!3d39.899000773332126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc42e3783261bc8b%3A0xa6ec2c940768a3ec!2zRXNwYcOxYQ!5e0!3m2!1ses!2ses!4v1618675976538!5m2!1ses!2ses"
+                                width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </body>
 
