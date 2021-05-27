@@ -12,7 +12,7 @@
             <form name="my-form" onsubmit="" action="/busqueda" method="POST">
                <div class="input-group rounded">
                   <input type="search" class="form-control rounded" placeholder="Texto" aria-label="Texto"
-                     aria-describedby="search-addon" id="texto" name="texto"/>
+                     aria-describedby="search-addon" id="texto" name="texto" />
                   <span class="input-group-text border-0" id="texto-addon">
                      <i class="fas fa-search"></i>
                   </span>
@@ -25,17 +25,17 @@
                         <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Precio Minimo" aria-label="premin"
-                        aria-describedby="search-addon" name="precioMinimo"/>
+                        aria-describedby="search-addon" name="precioMinimo" />
                      <span class="input-group-text border-0" id="premin-addon">
                         <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Precio Maximo" aria-label="premax"
-                        aria-describedby="search-addon" name="precioMaximo"/>
+                        aria-describedby="search-addon" name="precioMaximo" />
                      <span class="input-group-text border-0" id="premax-addon">
                         <i class="fas fa-search"></i>
                      </span>
                      <input type="search" class="form-control rounded" placeholder="Categoria" aria-label="categoria"
-                        aria-describedby="search-addon" style="width: 40%;" name="categoria"/>
+                        aria-describedby="search-addon" style="width: 40%;" name="categoria" />
                      <span class="input-group-text border-0" id="categoria-addon">
                         <i class="fas fa-search"></i>
                      </span>
@@ -44,45 +44,48 @@
             </form>
          </div>
       </div>
-      <div class="row scroll cartascroll">
-         {{#each articulos}}
-         <div class="col-md-6 mb-6">
-            <div class="card text-center">
-               <div class="card-body">
-                  <div class="row">
-                     <div class="col-3">
-                        <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
-                        <div>
-                           <b>{{estado}}</b>
+      <div class="containerespecial">
+         <div class="row" style="margin-right: 0px;">
+            {{#each articulos}}
+            <div class="col-md-6 mb-6">
+               <div class="card text-center">
+                  <div class="card-body">
+                     <div class="row">
+                        <div class="col-3">
+                           <img class="img-rounded" src="images/caja.png" width="70" height="70" alt="Card image">
+                           <div>
+                              <b>{{estado}}</b>
+                           </div>
                         </div>
-                     </div>
-                     <div class="col-6">
-                        <div>
-                           <b class="m-2">{{nombre}}</b>
+                        <div class="col-6">
+                           <div>
+                              <b class="m-2">{{nombre}}</b>
+                           </div>
+                           <div>
+                              <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
+                           </div>
                         </div>
-                        <div>
-                           <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
+                        <div class="col-3">
+                           <div>
+                              <b>{{precio}} €</b>
+                           </div>
+                           <button id='btn_Comprar' onClick="show({{idArticulo}})"
+                              class="btn btn-gris mb-2">Comprar</button>
+                           <a href="/contacts/delete/#" class="btn btn-rojo mb-2">Cambiar</a>
                         </div>
-                     </div>
-                     <div class="col-3">
-                        <div>
-                           <b>{{precio}} €</b>
-                        </div>
-                        <button id='btn_Comprar' onClick="show({{idArticulo}})" class="btn btn-gris mb-2">Comprar</button>
-                        <a href="/contacts/delete/#" class="btn btn-rojo mb-2">Cambiar</a>
                      </div>
                   </div>
+                  <br>
                </div>
-               <br>
             </div>
-         </div>
-         {{else}}
-         <div class="col-md-4 mx-auto" style="margin-bottom: 20%;">
-            <div class="card card-body text-center">
-               <p>No hay articulos disponibles</p>
+            {{else}}
+            <div class="col-md-4 mx-auto" style="margin-bottom: 20%;">
+               <div class="card card-body text-center">
+                  <p>No hay articulos disponibles</p>
+               </div>
             </div>
+            {{/each}}
          </div>
-         {{/each}}
       </div>
    </div>
 
