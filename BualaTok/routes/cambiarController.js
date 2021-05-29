@@ -22,4 +22,44 @@ router.get("/cambiar/:idArticulo", function (req, res, next) {
   });
 });
 
+router.get("/intercambiar/:idArticulo/:idArticuloPropio", function (req, res, next) {
+  const { idArticulo } = req.params;
+  const { idArticuloPropio } = req.params;
+
+
+  var sql = "SELECT PRECIO FROM daweb.articulo WHERE idArticulo = ?;";
+  var paramet = [idArticulo];
+  const rows = conexion.query(sql, paramet, (error, results) => {
+    if (results.length > 0) {
+      articuloPrecio = results[0].PRECIO;
+    }
+
+    sql = "SELECT PRECIO FROM daweb.articulo WHERE idArticulo = ?;";
+    paramet = [idArticuloPropio];
+    const rows1 = conexion.query(sql, paramet, (error, results) => {
+      if (results.length > 0) {
+        articuloPropioPrecio = results[0].PRECIO;
+      }
+
+      if(articuloPropioPrecio>=articuloPrecio){
+        sql = ('DELETE FROM daweb.articulo WHERE idArticulo = ?');
+        paramet = [idArticulo];
+        const rows2 = conexion.query(
+          sql, paramet, (error, results) => {
+          }
+        );
+
+        sql = ('DELETE FROM daweb.articulo WHERE idArticulo = ?');
+        paramet = [idArticuloPropio];
+        const rows3 = conexion.query(
+          sql, paramet, (error, results) => {
+          }
+        );
+      }
+    })
+  })
+  console.log("************************")
+  res.status(200);
+});
+
 module.exports = router;
