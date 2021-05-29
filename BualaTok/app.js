@@ -70,6 +70,7 @@ app.use(require("./routes/hudController"));
 app.use(require("./routes/buscadorController"));
 app.use(require("./routes/tusArticulosController"));
 app.use(require("./routes/modificarUsuarioController"));
+app.use(require("./routes/cambiarController"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
