@@ -75,4 +75,6 @@ router.post("/registrarUsuario", function (req, res, next) {
     }*/
 });
 
+
+
 module.exports = router;
