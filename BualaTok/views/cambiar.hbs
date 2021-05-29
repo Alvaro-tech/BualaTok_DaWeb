@@ -1,1 +1,79 @@
-<h1>{{articulo.precio}}</h1>
+<!DOCTYPE html>
+<html lang="es">
+   <body class="colorfondo">
+      <div class="mx-auto" style="margin: 50px;">
+         <div class="container" style="text-align: center;  padding: 20px; ">
+            <i class="fas fa-search-dollar fa-6x"></i>
+         </div>
+
+
+            <br>
+               <h3 class="text-left text-dark">Tus artículos</h3>
+            <br>
+
+        
+
+         <div class="containerespecial">
+         <div class="row" style="margin-right: 0px;">
+            {{#each articulosPropios}}
+               <div class="col-md-6 mb-6">
+               <div class="card text-center">
+                  <div class="card-body">
+                     <div class="row">
+                        <div class="col-3">
+                           <img class="img-rounded" src="/images/caja.png" width="70" height="70" alt="Card image">
+                        </div>
+                        <div class="col-6">
+                           <div>
+                              <b class="m-2">{{nombre}}</b>
+                           </div>
+                           <div>
+                              <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
+                           </div>
+                        </div>
+                        <div class="col-3">
+                           <div>
+                              <b>{{precio}} €</b>
+                           </div>
+                        </div> 
+                     </div>
+                  </div>
+                  <br>
+               </div>
+               </div>
+            {{else}}
+               <div class="col-md-4 mx-auto">
+                  <div class="card card-body text-center">
+                     <p>No hay articulos disponibles</p>
+                     <a href="/contacts/add">Add One!</a>
+                  </div>
+               </div>
+            {{/each}}
+         </div>    
+      </div>
+      </div>
+
+      <div class="modal" tabindex="-1" role="dialog" id="idAlertaCambiar">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title">Confirmar el trueque</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <p>¿Está seguro que desea intercambiar este artículo?</p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-gris" id="idBotonConfirmar" onclick="comprar()">Cambiar</button>
+               <button type="button" class="btn btn-rojo" data-dismiss="modal">Cancelar</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   </body>
+</html>
+
