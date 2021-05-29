@@ -82,7 +82,7 @@ router.post("/busqueda", function (req, res, next) {
     }
   }
 
-  if(estado!=""){
+  if(estado!="" && estado!="Cualquiera"){
     if(primero){
       sql += "estado = '" + estado + "' ";
       primero = false;
@@ -109,7 +109,7 @@ router.post("/busqueda", function (req, res, next) {
     }
   }
 
-  if(categoria!=""){
+  if(categoria!="" && categoria!="Cualquiera" ){
     if(primero){
       sql += "categoria = '" + categoria + "' ";
       primero = false;
