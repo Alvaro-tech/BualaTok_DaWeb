@@ -26,6 +26,7 @@ router.get("/intercambiar/:idArticulo/:idArticuloPropio", function (req, res, ne
   const { idArticulo } = req.params;
   const { idArticuloPropio } = req.params;
 
+    console.log(",.,,.,.,.,. " + " " +  idArticulo + " " + idArticuloPropio);
 
   var sql = "SELECT PRECIO FROM daweb.articulo WHERE idArticulo = ?;";
   var paramet = [idArticulo];
@@ -46,20 +47,29 @@ router.get("/intercambiar/:idArticulo/:idArticuloPropio", function (req, res, ne
         paramet = [idArticulo];
         const rows2 = conexion.query(
           sql, paramet, (error, results) => {
+            sql = ('DELETE FROM daweb.articulo WHERE idArticulo = ?');
+            paramet = [idArticuloPropio];
+            const rows3 = conexion.query(
+              sql, paramet, (error, results) => {
+                  if(error) {res.sendStatus(412); 
+                } else {
+                    res.sendStatus(200);
+                }
+              }
+            );
+            
           }
         );
 
-        sql = ('DELETE FROM daweb.articulo WHERE idArticulo = ?');
-        paramet = [idArticuloPropio];
-        const rows3 = conexion.query(
-          sql, paramet, (error, results) => {
-          }
-        );
+        
+      } else {
+        res.sendStatus(412);
       }
+      
     })
   })
   console.log("************************")
-  res.status(200);
+  
 });
 
 module.exports = router;

@@ -22,6 +22,7 @@ function intercambiarProducto(idArticulo, idArticuloPropio) {
     request.open("GET", "http://localhost:3000/intercambiar/" + idArticulo + "/" + idArticuloPropio);
     request.responseType = "json";
     request.onload = function () {
+      console.log("Status devuelto; "+request.status );
       if (request.status === 200) {
         console.log("Resuelve el 200")
         resolve(request.status);
