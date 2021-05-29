@@ -11,11 +11,16 @@ window.centerMap =  centerMap;
 window.centerMapDefault =  centerMapDefault;
 window.clearMap =  clearMap;
 window.addMarker =  addMarker;
-
-
+window.devolverProvincia =  devolverProvincia;
+window.geocodeLatLng = geocodeLatLng;
 var map;
 var markers = [];
 var marker;
+
+
+const geocoder = new google.maps.Geocoder();
+const infowindow = new google.maps.InfoWindow()
+
 function initialize() {
   map = new google.maps.Map(document.getElementById("map_canvas"), {
     zoom: 16,
@@ -27,6 +32,11 @@ function initialize() {
   });
   google.maps.event.addListener(map, "click", function (e) { //dblclick
     console.log("Click en el mapa")
+    //var e_ = JSON.stringify(e)
+    console.log("### " + e.latLng.lat() + e.latLng.lng());
+    devolverProvincia(e.latLng.lat(), e.latLng.lng());
+    //geocodeLatLng(e.latLng.lat() , e.latLng.lng(), geocoder, map, infowindow);
+
     if (markers[0]) markers[0].setMap(null);
     markers = [];
     marker = new google.maps.Marker({
@@ -81,8 +91,33 @@ function clearMap() {
   markers = [];
 }
 
+function geocodeLatLng(lat_, lng_ ,geocoder, map, infowindow) {
+  const latlng = {
+    lat: parseFloat(lat_),
+    lng: parseFloat(lng_ ),
+  };
+  geocoder.geocode({ location: latlng }, (results, status) => {
+    if (status === "OK") {
+      if (results[0]) {
+        map.setZoom(11);
+        const marker = new google.maps.Marker({
+          position: latlng,
+          map: map,
+        });
+        infowindow.setContent(results[0].formatted_address);
+        infowindow.open(map, marker);
+      } else {
+        window.alert("No results found");
+      }
+    } else {
+      window.alert("Geocoder failed due to: " + status);
+    }
+  });
+}
+
 function devolverProvincia(lat, long) {
   return new Promise(function (resolve, reject) {
+    console.log("Esta llegando a la promesa")
     var request = new XMLHttpRequest();
     request.open("GET", "http://localhost:3000/provincia/" + lat + "/" + long);
     request.responseType = "json";
