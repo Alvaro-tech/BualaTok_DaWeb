@@ -21,6 +21,8 @@ router.post("/registrarUsuario", function (req, res, next) {
     var password_2 = req.body.pass2;
     var mail = req.body.mail;
     var credito = req.body.credito;
+    var provincia = req.body.provincia;
+    console.log(provincia);
     //var provincia = Provincia.MURCIA;
     console.log("Hago el post");
 
@@ -75,6 +77,12 @@ router.post("/registrarUsuario", function (req, res, next) {
     }*/
 });
 
+
+router.get("/provincia/:lat/:long", function (req, res, next) {
+
+    
+
+});
 
 
 module.exports = router;

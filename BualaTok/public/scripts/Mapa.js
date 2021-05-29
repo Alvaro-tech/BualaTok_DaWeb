@@ -80,3 +80,26 @@ function clearMap() {
   if (markers[0]) markers[0].setMap(null);
   markers = [];
 }
+
+function devolverProvincia(lat, long) {
+  return new Promise(function (resolve, reject) {
+    var request = new XMLHttpRequest();
+    request.open("GET", "http://localhost:3000/provincia/" + lat + "/" + long);
+    request.responseType = "json";
+    request.onload = function () {
+      if (request.status === 200) {
+        resolve(request.status);
+      } else {
+        reject(
+          Error(
+            "No se ha podido procesar correctamente tu petición: " + request.statusText
+          )
+        );
+      }
+    };
+    request.onerror = function () {
+      reject(Error("Ha ocurrido un error."));
+    };
+    request.send();
+  });
+}
