@@ -19,7 +19,6 @@ router.get("/login", function (req, res, next) {
 router.post("/login", async (req, res, next) => {
   var username = req.body.username;
   var password = req.body.password;
-  console.log(req.session.idUser);
 
   console.log("Hago el post");
 
