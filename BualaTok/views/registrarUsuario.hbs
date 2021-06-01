@@ -79,20 +79,27 @@
           </div>
 
           <div class="form-group row">
+            <label for="pass_id" class="col-2 col-form-label text-md-right etiqueta">Mail</label>
+            <div class="col-4">
+              <input type="password" id="pass1" name="pass1" class="form-control" />
+            </div>
+
+            <label for="pass_id_2" class="col-2 col-form-label text-md-right etiqueta"
+              style="margin-left: -95px;">Provincia</label>
+            <div class="col-3">
+              <select class="form-control etiqueta" id="provincia" name="provincia" onchange="ajustarMapa()">
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
             <div class="form-group col-md-6">
-              <div class="form-group row">
-                <label for="mail" class="col-md-4 col-form-label text-md-right etiqueta">Mail</label>
-                <div class="col-md-8">
-                  <input type="mail" id="mail" class="form-control" name="mail" />
-                </div>
-              </div>
               <div class="form-group row">
                 <label for="Credito" class="col-md-4 col-form-label text-md-right etiqueta">Credito</label>
                 <div class="col-md-4">
                   <input type="number" id="credito" name="credito" min="0" max="1000" step="2" value="0" size="10"
                     class="etiqueta" style="margin-top: 5px;" />
                 </div>
-                <label for="provincia" class="col-md-4 col-form-label text-md-right etiqueta">Provincia</label>
               </div>
               <br /><br />
               <br /><br />
@@ -101,10 +108,12 @@
                 <a href="/login" class="btn btn-rojo" tabindex="-1" role="button" aria-disabled="true"
                   style="margin-left: 50px;">Cancelar</a>
               </div>
-              <input id="provincia" name="provincia" type="hidden" value="provincia">
+              <input id="provincias" name="provincias" type="hidden" value="provincia">
             </div>
             <div class="form-group col-md-6">
-              <div id="map_canvas"></div>
+              <div>
+                <div id="map_canvas"></div>
+              </div>
             </div>
           </div>
         </form>

@@ -5,12 +5,15 @@ const router = express.Router();
 var conexion = require("../database");
 //const Provincia = require("../public/models/Provincia");
 const { Usuario } = require("../public/models/Usuario");
+
+const { Provincia } = require("../public/models/Provincia");
 //import { createUsuario } from '../public/models/Usuario';
 const { UserService } = require("../services/userService");
 var userService = new UserService();
 
 router.get("/registrarUsuario", function (req, res, next) {
-  res.render("registrarUsuario", { layout: "noLoggued" });
+
+  res.render("registrarUsuario", { layout: "noLoggued", Provincia });
 });
 
 router.post("/registrarUsuario", async (req, res, next) => {
