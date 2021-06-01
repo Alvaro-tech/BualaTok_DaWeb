@@ -10,9 +10,10 @@ class Articulo {
     this.idUsuario = idUsuario;
     this.visualizaciones = 0;
     this.idArticulo = 0;
+    this.disponibilidad = "en venta";
     }
 }
-
+/*
 createArticulo = (nombre, precio, descripcion, foto, fecha, categoria, estado, idUsuario) => {
     try {
         return new Articulo(nombre, precio, descripcion, foto, fecha, categoria, estado, idUsuario);
@@ -35,5 +36,5 @@ listarArticulos = (results) => {
     } catch (error) {
         console.log(error);
     }
-}
-module.exports = { createArticulo, listarArticulos };
+}*/
+module.exports.Articulo = Articulo;

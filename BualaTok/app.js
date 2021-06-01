@@ -66,7 +66,6 @@ app.use("/users", usersRouter);
 app.use(require("./routes/loginController"));
 app.use(require("./routes/registrarUsuarioController"));
 app.use(require("./routes/registrarArticuloController"));
-app.use(require("./routes/hudController"));
 app.use(require("./routes/buscadorController"));
 app.use(require("./routes/tusArticulosController"));
 app.use(require("./routes/modificarUsuarioController"));
