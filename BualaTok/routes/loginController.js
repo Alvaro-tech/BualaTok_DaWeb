@@ -5,6 +5,9 @@ const router = express.Router();
 var conexion = require("../database");
 var bodyParser = require("body-parser");
 
+const { UserService } = require("../services/userService");
+var userService = new UserService();
+
 router.get("/login", function (req, res, next) {
   //const sql = " INSERT INTO daweb.usuario (nombre, apellidos, usuario, clave, credito, provincia, mail) VALUES ('Jose', 'Gutierrez Fernandez', 'prueba1', 'jose123', 45, 'Murcia', 'josegu@um.es');";
   //conexion.query(sql, (error, results) => {
@@ -13,32 +16,23 @@ router.get("/login", function (req, res, next) {
   res.render("sigIn", {layout: 'noLoggued' });
 });
 
-router.post("/login", (req, res, next) => {
+router.post("/login", async (req, res, next) => {
   var username = req.body.username;
   var password = req.body.password;
   console.log(req.session.idUser);
 
   console.log("Hago el post");
 
+  var respuesta = await userService.isUsuarioLoggued(username,password )
+
+  if(respuesta == "BAD_LOG") {
+    res.redirect('/login');
+  } else {
+    req.session.idUser = respuesta;
+    res.redirect('/tusArticulos');
+  }
+
   //var sql = "SELECT CLAVE FROM daweb.usuario WHERE usuario = " + "'" + username + "'";
-  var sql = ('SELECT CLAVE, IDUSUARIO FROM daweb.usuario WHERE usuario = ?;');
-  var paramet = [username];
-  const rows = conexion.query(
-    sql,paramet,(error, results) => {
-      console.log(results);
-      //console.log('SELECT CLAVE FROM daweb.usuario WHERE usuario = ? ' , [username]);
-      if (results.length > 0) {
-        var pass = results[0].CLAVE;
-        if(pass==password){
-         // var bienvenido = 'Bienvenido: ' + username;
-          //res.render('hud', { title: bienvenido, contrasena: password});
-          req.session.idUser = results[0].IDUSUARIO;
-          res.redirect('/tusArticulos');
-        } else{
-            res.redirect('/login');
-        }
-      }
-    }
-  );
+  
 });
 module.exports = [router];

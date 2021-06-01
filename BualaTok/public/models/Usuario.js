@@ -1,4 +1,4 @@
-class Usuario {
+ class Usuario {
     constructor(nombre, apellidos, usuario, clave, credito, provincia, mail) {
     this.nombre = nombre;
     this.apellidos = apellidos;
@@ -9,7 +9,7 @@ class Usuario {
     this.mail = mail;
     }
 }
-
+/*
 createUsuario = (nombre, apellidos, usuario, clave, credito, provincia, mail) => {
     try {
         return new Usuario(nombre, apellidos, usuario, clave, credito, provincia, mail);
@@ -30,5 +30,6 @@ listarUsuarios = (results) => {
     } catch (error) {
         console.log(error);
     }
-}
-module.exports = { createUsuario, listarUsuarios };
+}*/
+module.exports.Usuario = Usuario;
+//module.exports = { createUsuario, listarUsuarios };
