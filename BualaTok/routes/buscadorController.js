@@ -26,9 +26,11 @@ router.get("/comprar/:idArt", async (req, res, next) => {
   var respuesta = await articuloService.comprarArticulo(idArt, idUser);
 
   if(respuesta == "CANT_BUY"){
+    console.log("ERROR de busqueda")
     res.sendStatus(412);
   }else {
-    res.status(200);
+    console.log("Busqueda OK")
+    res.sendStatus(200);
   }
 
 });

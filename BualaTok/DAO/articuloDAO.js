@@ -7,7 +7,7 @@ var conexion = require("../database");
 
      async get(articuloID) {
         return new Promise(resolve => {
-            var sql = ('SELECT IDARTICULO FROM daweb.articulo WHERE idarticulo = ?;');
+            var sql = ('SELECT *  FROM daweb.articulo WHERE idarticulo = ?;');
             var paramet = [articuloID];
             const rows = conexion.query(
               sql,paramet,(error, results) => {

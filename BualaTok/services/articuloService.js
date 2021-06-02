@@ -38,6 +38,10 @@ var userDao = new UserDAO();
       var usuarioLoggued = await userDao.getByID(idUser);
       var usuarioVendedor = await userDao.getByID(articulo.idUsuario);
 
+
+      console.log ("ArticuloService dinero del comprado" +usuarioLoggued.credito );
+      console.log ("ArticuloService precio" +articulo.precio );
+
       if(usuarioLoggued.credito >= articulo.precio){
         usuarioLoggued.credito -= articulo.precio;
         usuarioVendedor += articulo.precio;
