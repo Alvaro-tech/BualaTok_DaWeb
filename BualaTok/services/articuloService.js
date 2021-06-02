@@ -5,18 +5,18 @@ var userDao = new UserDAO();
 
  class ArticuloService {
   constructor() {}
-  async getUsuario(username) {
-    var usuario = await usuarioDao.get(username);
-    if(usuario == "NOT_FOUND"){
+  async getArticulo(idArticulo){
+    var articulo = await articuloDao.get(idArticulo);
+    if(articulo == "NOT_FOUND"){
       return "NOT_FOUND";
     } else{
-      return usuario;
+      return articulo;
     }
   }
   //Login OK -> ID usuario
   //Login BAD -> ERROR
-  async listarArticulos(idUsuario) {
-    var listArticulos = await articuloDao.getByUser(idUsuario);
+  async listarArticulos(idUsuario, enVenta = false) {
+    var listArticulos = await articuloDao.getByUser(idUsuario, enVenta);
     return listArticulos;
   }
 
@@ -31,16 +31,9 @@ var userDao = new UserDAO();
   }
 
   async comprarArticulo(idArti, idUser){
-      console.log ("ArticuloService comprar idArti:" +idArti );
-      console.log ("ArticuloService comprar idUser:" +idUser );
       var articulo = await articuloDao.get(idArti);
-      console.log ("ArticuloService comprar articulo:" +articulo );
       var usuarioLoggued = await userDao.getByID(idUser);
       var usuarioVendedor = await userDao.getByID(articulo.idUsuario);
-
-
-      console.log ("ArticuloService dinero del comprado" +usuarioLoggued.credito );
-      console.log ("ArticuloService precio" +articulo.precio );
 
       if(usuarioLoggued.credito >= articulo.precio){
         usuarioLoggued.credito -= articulo.precio;
@@ -67,8 +60,16 @@ var userDao = new UserDAO();
         } else {
             return articulos;
         }
+  }
+  
+  async actualizar(articulo){
+    var respuesta = await articuloDao.update(articulo);
+    if(respuesta == false){
+      return false;
+    }else{
+      return true;
     }
- }
-
+  }
+}
 
 module.exports.ArticuloService = ArticuloService;

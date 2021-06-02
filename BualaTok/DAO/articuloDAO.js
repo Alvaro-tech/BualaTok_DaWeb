@@ -19,17 +19,24 @@ var conexion = require("../database");
                         articulo.disponibilidad = results[0].disponibilidad;
                     resolve(articulo);
                 } else {
-                    resolve(undefined);
+                    resolve("NOT_FOUND");
                 }
               }
             );
           });
         }
 
-    async getByUser(username) {
+    async getByUser(username, enVenta = false) {
         return new Promise(resolve => {
-         var sql = ('SELECT * FROM daweb.articulo where idUsuario = ?;');
-          var paramet = [username];
+          var sql;
+          var paramet;
+          if(enVenta == true){
+            sql = ("SELECT * FROM daweb.articulo where idUsuario = ? AND disponibilidad = 'en venta';");
+            paramet = [username];
+          }else{
+            sql = ('SELECT * FROM daweb.articulo where idUsuario = ?;');
+            paramet = [username];
+          }
           const rows = conexion.query(
             sql,paramet,(error, results) => {
                 if(error) {
