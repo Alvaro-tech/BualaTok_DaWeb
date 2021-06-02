@@ -29,10 +29,10 @@ router.post("/registrarArticulo", async (req, res, next) => {
     var respuesta = await articuloService.registrarArticulo(articulo);
 
     if(respuesta == false){
-        res.redirect("/registrarArticulo");
-      } else {
-        res.redirect("/tusArticulos");
-      }
+      res.redirect("/registrarArticulo");
+    } else {
+      res.redirect("/tusArticulos");
+    }
 });
 
 module.exports = router;

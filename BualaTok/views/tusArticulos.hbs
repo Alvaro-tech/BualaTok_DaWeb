@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-   <body class="colorfondo">
-      <div class="mx-auto" style="margin: 50px;">
-         <div class="container" style="text-align: center;  padding: 20px; ">
-            <i class="fas fa-search-dollar fa-6x"></i>
-         </div>
-         <div class="card mx-auto carta">
-            <br>
-               <h3 class="text-center text-dark">Tus artículos</h3>
-            <br>
+
+<body class="colorfondo">
+   <div class="mx-auto" style="margin: 50px;">
+      <div class="container" style="text-align: center;  padding: 20px; ">
+         <i class="fas fa-search-dollar fa-6x"></i>
+      </div>
+      <div class="card mx-auto carta">
+         <br>
+         <h3 class="text-center text-dark">Tus artículos</h3>
+         <br>
          <div class="containerespecial">
-         <div class="row" style="margin-right: 0px;">
-            {{#each articulos}}
+            <div class="row" style="margin-right: 0px;">
+               {{#each articulos}}
                <div class="col-md-6 mb-6">
-               <div class="card text-center">
-                  <div class="card-body">
-                     <div class="row">
-                        <div class="col-4 text-center">
-                           <img class="img-rounded" src="/images/movil.jpg" width="110" height="120" alt="Card image" style="padding-top: 5%;">
-                           <div style="padding-top: 5%;">
-                              <b>Estado: {{estado}}</b>
+                  <div class="card text-center">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col-4 text-center">
+                              <img class="img-rounded" src="/images/movil.jpg" width="110" height="120" alt="Card image"
+                                 style="padding-top: 5%;">
+                              <div style="padding-top: 5%;">
+                                 <b>Estado: {{estado}}</b>
+                              </div>
+                           </div>
+                           <div class="col-8 text-center">
+                              <div style="padding-top: 5%;">
+                                 <b class="m-2">{{nombre}}</b>
+                                 <b>{{precio}}€</b>
+                                 <b>Disponibilidad: {{disponibilidad}}</b>
+                              </div>
+                              <div style="padding-top: 4%;">
+                                 <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
+                              </div>
                            </div>
                         </div>
-                        <div class="col-8 text-center">
-                           <div style="padding-top: 5%;">
-                              <b class="m-2">{{nombre}}</b>
-                              <b>{{precio}}€</b>
-                              <b>Disponibilidad: {{disponibilidad}}</b>
-                           </div>
-                           <div style="padding-top: 4%;">
-                              <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
-                           </div>
-                        </div>
-                        </div> 
                      </div>
                   </div>
                   <br>
                </div>
-               </div>
             {{else}}
-               <div class="col-md-4 mx-auto">
-                  <div class="card card-body text-center">
-                     <p>No hay articulos disponibles</p>
-                     <a href="/contacts/add">Add One!</a>
-                  </div>
+            <div class="col-md-4 mx-auto">
+               <div class="card card-body text-center">
+                  <p>No hay articulos disponibles</p>
+                  <a href="/contacts/add">Add One!</a>
                </div>
+            </div>
             {{/each}}
-         </div>    
+            </div>
+         </div>
       </div>
-      </div>
-   </body>
-   <script src="scripts/buscador.js" type="module"></script>
-</html>
+   </div>
+</body>
+<script src="scripts/buscador.js" type="module"></script>
 
+</html>

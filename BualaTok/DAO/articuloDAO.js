@@ -187,6 +187,13 @@ var conexion = require("../database");
             }else{
               sql += "AND idUsuario <> '" + idUser + "' ";
             }
+
+            if(primero){
+              sql += "disponibilidad = 'en venta' ";
+              primero = false;
+            }else{
+              sql += "AND disponibilidad = 'en venta' ";
+            }
           
             console.log(sql);
 
