@@ -1,33 +1,12 @@
 <!-- saved from url=(0014)about:internet -->
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-        html, body {
-            height: 99.2%;
-            margin: 0;
-            padding: 0;
-        }
 
-        #map_canvas {
-            height: 100%;
-            border-color: red;
-            border-style: groove;
-            border-width: 5px;
-        }
-
-        #content {
-            width: 270px;
-            background-color: green;
-            color: white;
-        }
-    </style>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=es&key=AIzaSyBehRiakfPZtUWDtqJGafMKLyfXrqAQso8"></script>
-<script src="scripts/Mapa.js" type="module"></script>
-</head>
-<body onload="initialize()">
-    <div id="map_canvas"></div>
+<body>
+    
+ <img class="img-rounded"  id="fotoArti" src="images/FlorRoja.jpg" alt="Card image" width="270"
+                                    height="320">
+                                        <input type="image" src="images/download.png" id="cargarImg" width="80" height="80" onclick="guardarImagen()" />
+                                        <input id="file-input" type="file" name="name" style="display: none;" onChange="cambiarImagenGuardada()" accept=".jpg, .jpeg, .png" />
 </body>
+<script src="scripts/gestorFotos.js" type="module"></script>
 </html> 
