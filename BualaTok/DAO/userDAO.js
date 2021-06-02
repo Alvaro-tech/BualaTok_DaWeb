@@ -77,8 +77,8 @@ var conexion = require("../database");
 
     async update(usuario){
       return new Promise(resolve => {
-        var sql = 'UPDATE daweb.usuario SET ? WHERE idusuario = ?';
-        var paramet = [usuario, usuario.idusuario];
+        var sql = 'UPDATE daweb.usuario SET ? WHERE usuario = ?';
+        var paramet = [usuario, usuario.usuario];
         const rows = conexion.query(sql, paramet, (error, results) => {
           if(error){
               console.log(error);

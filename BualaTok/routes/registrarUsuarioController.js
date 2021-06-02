@@ -1,13 +1,8 @@
 var express = require("express");
 
 const router = express.Router();
-//import {conexion} from './index'
-var conexion = require("../database");
-//const Provincia = require("../public/models/Provincia");
 const { Usuario } = require("../public/models/Usuario");
-
 const { Provincia } = require("../public/models/Provincia");
-//import { createUsuario } from '../public/models/Usuario';
 const { UserService } = require("../services/userService");
 var userService = new UserService();
 

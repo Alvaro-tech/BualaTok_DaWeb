@@ -55,7 +55,7 @@ var coordenadas = new Map();
   coordenadas.set('Valencia', "39.4554331089727 -0.374566709087611");
   coordenadas.set('Valladolid', "41.64931757753865 -4.731916661982098");
   coordenadas.set('Vizcaya', "43.26823792285507 -2.9831592646962686");
-  coordenadas.set('Zamora', "41.50547972058436s -5.743935374077931");
+  coordenadas.set('Zamora', "41.50547972058436 -5.743935374077931");
   coordenadas.set('Zaragoza', "41.648992311304895 -0.9052811383953432");
 //};
 
@@ -90,8 +90,6 @@ function ajustarMapa(){
 
   console.log(provincia);
 
-  markers = [];
-
   var coordenada = coordenadas.get(provincia);
 
   console.log(coordenada);
@@ -102,7 +100,10 @@ function ajustarMapa(){
   
   var lng = coor[1];
 
-  if (markers[0]) markers[0].setMap(null);
+  if (markers[0]) {
+    console.log("Reseteo los puntos");
+    markers[0].setMap(null)
+  };
   markers = [];
 
   var latLng = new google.maps.LatLng(lat, lng);
@@ -110,7 +111,7 @@ function ajustarMapa(){
     position: latLng,
     draggable: true,
   });
-  clearMap()
+
   markers.push(marker);
   map.setCenter(new google.maps.LatLng(latLng.lat(), latLng.lng()));
   marker.setMap(map);
@@ -126,20 +127,41 @@ function cargar() {
   }
 }
 
-function initialize() {
+function initialize() { //provinciaSelected
   cargar();
 
 
+  var select = document.getElementById("provincia");
 
+  var provincia  = select.options[select.selectedIndex].text;
+
+  var coordenada = coordenadas.get(provincia);
+
+  console.log(coordenada);
+
+  var coor = coordenada.split(" ");
+
+  var lat  = coor[0];
+  
+  var lng = coor[1];
+
+  var latLng = new google.maps.LatLng(lat, lng);
+  marker = new google.maps.Marker({
+    position: latLng,
+    draggable: true,
+  });
+
+  markers.push(marker)
 
   map = new google.maps.Map(document.getElementById("map_canvas"), {
     zoom: 5,
-    center: new google.maps.LatLng(40.41874, -3.686235),
+    center: new google.maps.LatLng(latLng.lat(), latLng.lng()),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     disableDefaultUI: true,
     //zoomControl: true,
     maxZoom: 19,
   });
+  marker.setMap(map);
 }
 
 function centerMap(Lat, Long) {

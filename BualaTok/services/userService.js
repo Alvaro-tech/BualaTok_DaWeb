@@ -11,6 +11,25 @@ var usuarioDao = new UserDAO();
       return usuario;
     }
   }
+
+  async getUsuarioByID(idUser) {
+    var usuario = await usuarioDao.getByID(idUser);
+    if(usuario == "NOT_FOUND"){
+      return "NOT_FOUND";
+    } else{
+      return usuario;
+    }
+  }
+
+  async actualizar(usuario) {
+    var usuario = await usuarioDao.update(usuario);
+    if(usuario == false){
+      return false;
+    } else{
+      return true;
+    }
+  }
+
   //Login OK -> ID usuario
   //Login BAD -> ERROR
   async isUsuarioLoggued(username, password) {

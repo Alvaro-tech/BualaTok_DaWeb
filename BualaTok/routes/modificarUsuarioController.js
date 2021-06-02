@@ -1,27 +1,21 @@
 var express = require("express");
 
 const router = express.Router();
-//import {conexion} from './index'
-var conexion = require("../database");
-var bodyParser = require("body-parser");
-//const Provincia = require("../public/models/Provincia");
-const user = require("../public/models/Usuario");
-//import { createUsuario } from '../public/models/Usuario';
+
+const { Usuario } = require("../public/models/Usuario");
+const { Provincia } = require("../public/models/Provincia");
+const { UserService } = require("../services/userService");
+var userService = new UserService();
 
 
-router.get('/modificarUsuario', function(req, res, next) {
-    var sql = ('SELECT * FROM daweb.usuario WHERE IDUSUARIO = ?;');
-    var paramet = [req.session.idUser];
-    const rows = conexion.query(
-        sql,paramet,(error, results) => {
-            var usuarios = user.listarUsuarios(results);
-            var usuario = usuarios[0];
-            console.log(usuario);
-            res.render('modificarUsuario', {usuario});
-    })   
+router.get('/modificarUsuario', async(req, res, next) =>{
+    var usuario = await userService.getUsuarioByID(req.session.idUser);
+    var provinciaS=usuario.provincia;
+     res.render('modificarUsuario', {usuario, provinciaS});
+    
 });
 
-router.post("/modificarUsuario", function (req, res, next) {
+router.post("/modificarUsuario", async (req, res, next) => {
     var nombre = req.body.name;
     var apellidos = req.body.apellidos;
     var username = req.body.username;
@@ -29,40 +23,21 @@ router.post("/modificarUsuario", function (req, res, next) {
     var password_2 = req.body.pass2;
     var mail = req.body.mail;
     var credito = req.body.credito;
-    //var provincia = Provincia.MURCIA;
+    var provincia = req.body.provincia;
     console.log("Hago el post");
 
-    var usuariobasedatos = '';
-    var sql = ('SELECT * FROM daweb.usuario WHERE usuario = ?;');
-    var paramet = [username];
-    const rows = conexion.query(
-        sql, paramet, (error, results) => {
-            console.log(results);
-            //console.log('SELECT USUARIO FROM daweb.usuario WHERE usuario = ? ' , [username]);
-            if (results.length > 0) {
-                usuariobasedatos = results[0].USUARIO;
-            }
-            console.log(usuariobasedatos);
-
-            if (password_1 != password_2) {
-                res.redirect('/modificarUsuario');
-            } else if (usuariobasedatos == username && results[0].IDUSUARIO != req.session.idUser) {
-                res.redirect('/modificarUsuario');
-            } else {
-                var usuario = user.createUsuario(nombre, apellidos, username, password_1, credito, "Murcia", mail);
-                console.log(usuario);
-                var sql = ('UPDATE daweb.usuario SET ? WHERE IDUSUARIO = ?');
-                var paramet = [usuario, req.session.idUser];
-                const rows = conexion.query(
-                    sql, paramet, (error, results) => {
-                        console.log(results);
-                    }
-                );
-
-                res.redirect('tusArticulos');
-            }
-        }
-    );
+    if(password_1 != password_2){
+        res.redirect("/modificarUsuario");
+      }
+    
+      var usuario = new Usuario(nombre, apellidos, username, password_1, credito, provincia, mail);
+      var respuesta = await userService.actualizar(usuario);
+      if(respuesta == false){
+        res.redirect("/modificarUsuario");
+      } else {
+        res.redirect("/tusArticulos");
+      }
+    
 });
 
 module.exports = router;
