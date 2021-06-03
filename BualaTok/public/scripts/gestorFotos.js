@@ -19,7 +19,9 @@ window.onload = function() {
                 var img = new Image();
                 img.src = reader.result;
 
-                fileDisplayArea.appendChild(img);
+                fileDisplayArea.appendChild(img).style="height: 320 px; width: 270px; ";
+                
+                
             }
 
             reader.readAsDataURL(file);	
