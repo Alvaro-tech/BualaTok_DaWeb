@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
     cb(null, './public/data/uploads/')
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now())
+    cb(null, file.fieldname + '-' + Date.now() + ".png")
   }
 })
  
@@ -36,19 +36,18 @@ router.post("/registrarArticulo",upload.single('myImage') ,async (req, res, next
 
     console.log(req.file)
     var img = req.file;
+    var rutaF = req.file.filename;
     //var encode_image = img.toString('base64');
 
-
-
+    console.log("Nombre del fichero multer; " +rutaF);
 
     var idUsuario = req.session.idUser;
 
-    var foto = 'foto.jpg';
     var f = new Date();
     const fecha = f.getFullYear() + "-"+ (f.getMonth()+1)+ "-" +f.getDate();
     console.log("Hago el post");
 
-    var articulo = new Articulo(nombre, precio, descripcion, img, fecha, categoria, estado, idUsuario)
+    var articulo = new Articulo(nombre, precio, descripcion, rutaF, fecha, categoria, estado, idUsuario)
 
     var respuesta = await articuloService.registrarArticulo(articulo);
 
