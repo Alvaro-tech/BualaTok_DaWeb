@@ -18,10 +18,6 @@ var storage = multer.diskStorage({
  
 var upload = multer({ storage: storage })
 
-router.get('/descargarImg', function (req, res, next) {
-
-});
-
 
 
 
@@ -30,7 +26,7 @@ router.get('/registrarArticulo', function (req, res, next) {
     res.render('registrarArticulo', {});
 });
 
-router.post("/registrarArticulo",upload.single('myFile') ,async (req, res, next) => {
+router.post("/registrarArticulo",upload.single('myImage') ,async (req, res, next) => {
     var nombre = req.body.name;
     var descripcion = req.body.descripcion;
     var precio = req.body.precio;

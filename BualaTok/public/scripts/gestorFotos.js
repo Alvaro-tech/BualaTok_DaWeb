@@ -3,7 +3,7 @@ window.guardarImagen = guardarImagen;
 window.onload = function() {
 
     console.log("Se usa el onload")
-    var fileDisplayArea = document.getElementById('fileDisplayArea');
+    var fileDisplayArea = document.getElementById('fotoArti');fotoArti //fileDisplayArea
     var fileInput = document.getElementById("myImage");
 
     fileInput.addEventListener('change', function(e) {
@@ -18,11 +18,6 @@ window.onload = function() {
 
                 var img = new Image();
                 img.src = reader.result;
-
-
-                //var myFile = new File([img], "NoMeMareesLaPerdiz.png", {type: "text/image; charset=ISO-8859-1"});
-                //saveAs(myFile)
-            
 
                 fileDisplayArea.appendChild(img);
             }
