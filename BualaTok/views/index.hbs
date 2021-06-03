@@ -5,13 +5,12 @@
     
 
 <form action="/uploadphoto" enctype="multipart/form-data" method="POST"> 
-  <input type="file" name="myImage" accept="image/*"/>
+  <input id="myImage" type="file" name="myImage" accept="image/*"/>
   <input type="submit" value="Upload Photo"/>
-  <div id="fileDisplayArea"></div>
 </form>
  
 
-    
+<div id="fileDisplayArea"></div>
                                        
 </body>
 <script src="scripts/gestorFotos.js" type="module"></script>
