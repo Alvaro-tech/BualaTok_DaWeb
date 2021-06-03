@@ -3,10 +3,16 @@
 
 <body>
     
- <img class="img-rounded"  id="fotoArti" src="images/FlorRoja.jpg" alt="Card image" width="270"
-                                    height="320">
-                                        <input type="image" src="images/download.png" id="cargarImg" width="80" height="80" onclick="guardarImagen()" />
-                                        <input id="file-input" type="file" name="name" style="display: none;" onChange="cambiarImagenGuardada()" accept=".jpg, .jpeg, .png" />
+
+
+    
+    <input type="image" src="images/download.png" id="cargarImg" width="80" height="80" onClick="guardarImagen()" />
+    <input id="file-input" type="file" name="name" style="display: none;" />
+
+ <div id="fileDisplayArea"></div>
+
+    
+                                       
 </body>
 <script src="scripts/gestorFotos.js" type="module"></script>
 </html> 

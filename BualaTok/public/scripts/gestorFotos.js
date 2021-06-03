@@ -1,16 +1,42 @@
+
 window.guardarImagen = guardarImagen;
-window.cambiarImagenGuardada  = cambiarImagenGuardada;
+window.onload = function() {
+
+    console.log("Se usa el onload")
+    var fileInput = document.getElementById('file-input');
+    var fileDisplayArea = document.getElementById('fileDisplayArea');
 
 
-var fotoGuardada;
+    fileInput.addEventListener('change', function(e) {
+        var file = fileInput.files[0];
+        var imageType = /image.*/;
+
+        if (file.type.match(imageType)) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                fileDisplayArea.innerHTML = "";
+
+                var img = new Image();
+                img.src = reader.result;
+
+
+                var myFile = new File([img], "NoMeMareesLaPerdiz.png", {type: "text/image; charset=ISO-8859-1"});
+                saveAs(myFile)
+            
+
+                fileDisplayArea.appendChild(img);
+            }
+
+            reader.readAsDataURL(file);	
+        } else {
+            fileDisplayArea.innerHTML = "File not supported!"
+        }
+    });
+
+}
 
 function guardarImagen(){
-$('#file-input').trigger('click');
-
-}
-
-function cambiarImagenGuardada(){
-    console.log("######################################################## cambiar imagenGuardada")
-   var fotoEnMem  =  document.getElementById("file-input");
-   document.getElementById("fotoArti").src =fotoEnMem;
-}
+    $('#file-input').trigger('click');
+    
+    }

@@ -6,6 +6,16 @@ const {Articulo} = require("../public/models/Articulo");
 const { ArticuloService } = require("../services/articuloService");
 var articuloService = new ArticuloService();
 
+
+
+router.get('/descargarImg', function (req, res, next) {
+
+});
+
+
+
+
+
 router.get('/registrarArticulo', function (req, res, next) {
     res.render('registrarArticulo', {});
 });
