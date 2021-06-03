@@ -4,12 +4,12 @@
 <body>
     
 
-
-    
-    <input type="image" src="images/download.png" id="cargarImg" width="80" height="80" onClick="guardarImagen()" />
-    <input id="file-input" type="file" name="name" style="display: none;" />
-
- <div id="fileDisplayArea"></div>
+<form action="/uploadphoto" enctype="multipart/form-data" method="POST"> 
+  <input type="file" name="myImage" accept="image/*"/>
+  <input type="submit" value="Upload Photo"/>
+  <div id="fileDisplayArea"></div>
+</form>
+ 
 
     
                                        
