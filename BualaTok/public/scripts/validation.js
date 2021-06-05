@@ -1,4 +1,6 @@
 window.validateLogin = validateLogin;
+window.validateRegistroUsuario = validateRegistroUsuario;
+window.validateRegistroArticulo = validateRegistroArticulo;
 
 function validateLogin(){
     var x = document.forms["loginform"]["username"].value;
@@ -18,7 +20,7 @@ function validateRegistroUsuario(){
     console.log("entra a validar")
     var x;
     x = document.forms["my-form"]["name"].value;
-    if (x == undefined) {
+    if (x == "") {
         alert("El nombre no puede estar vacio");
         return false;
     }
@@ -58,12 +60,6 @@ function validateRegistroUsuario(){
         return false;
     }
 
-    var y = document.forms["my-form"]["credito"].value;
-    if (y == "") {
-        alert("El crédito no puede estar vacío");
-        return false;
-    }
-
 }
 
 function validateRegistroArticulo(){
@@ -82,14 +78,8 @@ function validateRegistroArticulo(){
     }
 
     x = document.forms["my-form"]["precio"].value;
-    if (x == "") {
-        alert("El precio no puede estar vacío");
-        return false;
-    }
-
-    x = document.forms["my-form"]["categoria"].value;
-    if (x == "") {
-        alert("La categoria no puede estar vacía");
+    if (x <= 0) {
+        alert("El producto no puede ser gratis");
         return false;
     }
 
