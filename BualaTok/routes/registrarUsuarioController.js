@@ -24,6 +24,11 @@ router.post("/registrarUsuario", async (req, res, next) => {
   //var provincia = Provincia.MURCIA;
   console.log("Hago el post");
 
+  /*if(nombre == "" || apellidos == "" || username == "" || mail == "" || credito == "" || 
+        provincia == "" || password_1 == "" || password_2 == ""){
+          res.redirect("/registrarUsuario");
+  }*/
+
   if(password_1 != password_2){
     res.redirect("/registrarUsuario");
   }

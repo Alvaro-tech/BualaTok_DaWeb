@@ -15,7 +15,7 @@
                 <br>
                 <h3 class="text-center text-dark">Registrar Artículo</h3>
                 <br>
-            <form name="my-form" onsubmit="" action="/registrarArticulo" method="POST" enctype="multipart/form-data">
+            <form name="my-form" action="/registrarArticulo" method="POST" enctype="multipart/form-data" onsubmit="return validateRegistroArticulo()">
                 <div class="form-group row">
                     <label for="full_name" class="col-2 col-form-label text-right etiqueta">Nombre</label>
                     <div class="col-8">
@@ -66,18 +66,14 @@
                     </div>
                     <div class="form-group col-md-6">
                         <div class="form-group row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-9">
+                                <div class="form-group row">
+                                    <input id="myImage" class="chooserfiles" type="file" name="myImage" accept="image/*"/>
+                                    <label for="myImage" class="labelboton">Seleccione una foto</label>
+                                </div>
                                 <div class="img-rounded"  id="fotoArti" alt="Card image" width="270"
                                     height="320"> </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <input id="myImage" type="file" name="myImage" accept="image/*"/>
-                                </div>
-                                <div class="form-group row">
-                                    <input type="image" src="images/cancelar.png" name="saveForm" class="btTxt"
-                                        id="saveForm" width="80" height="80"/>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,4 +83,5 @@
     </div>
 </body>
 <script src="scripts/gestorFotos.js" type="module"></script>
+<script src="scripts/validation.js" type="module"></script>
 </html>

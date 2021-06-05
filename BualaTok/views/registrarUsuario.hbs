@@ -44,7 +44,7 @@
         <br />
         <h3 class="text-center text-dark">Registro</h3>
         <br />
-        <form name="my-form" onsubmit="" action="/registrarUsuario" method="POST">
+        <form name="my-form" action="/registrarUsuario" method="POST" onsubmit="return validateRegistroUsuario()">
           <div class="form-group row">
             <label for="full_name" class="col-2 col-form-label text-right etiqueta">Nombre</label>
             <div class="col-8">
@@ -121,5 +121,5 @@
     </div>
   </div>
 </body>
-
+<script src="scripts/validation.js" type="module"></script>
 </html>
