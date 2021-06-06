@@ -13,7 +13,7 @@
     }
 
     #map_canvas {
-      height: 150%;
+      height: 270px;
       width: 80%;
       border-color: red;
       border-style: groove;
@@ -46,72 +46,75 @@
         <br />
         <form name="my-form" action="/modificarUsuario" method="POST" onsubmit="return validateRegistroUsuario()">
           <div class="form-group row">
-            <label for="full_name" class="col-2 col-form-label text-right etiqueta">Nombre</label>
-            <div class="col-8">
-              <input type="text" id="name" class="form-control" name="name" value="{{usuario.nombre}}" />
+            <label for="full_name" class="col-lg-2 col-md-4 col-form-label text-md-left text-lg-right etiqueta">Nombre</label>
+            <div class="col-lg-9 col-md-8">
+              <input type="text" id="name" class="form-control" name="name"  value="{{usuario.nombre}}" />
             </div>
           </div>
           <div class="form-group row">
-            <label for="apellidos_id" class="col-md-2 col-form-label text-md-right etiqueta">Apellidos</label>
-            <div class="col-md-8">
+            <label for="apellidos_id" class="col-lg-2 col-md-4 col-form-label text-md-left text-lg-right etiqueta">Apellidos</label>
+            <div class="col-lg-9 col-md-8">
               <input type="text" id="apellidos" class="form-control" name="apellidos" value="{{usuario.apellidos}}" />
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="user_name" class="col-md-2 col-form-label text-md-right etiqueta">Usuario</label>
-            <div class="col-md-4">
-              <input type="text" id="username" class="form-control" name="username" value="{{usuario.usuario}}" />
+            <label for="user_name" class="col-lg-2 col-md-4 col-form-label text-md-left text-lg-right etiqueta">Usuario</label>
+            <div class="col-lg-9 col-md-8">
+              <input type="text" id="username" class="form-control" name="username"  value="{{usuario.usuario}}" />
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="pass_id" class="col-2 col-form-label text-md-right etiqueta">Password</label>
-            <div class="col-4">
-              <input type="password" id="pass1" name="pass1" class="form-control" value="{{usuario.clave}}" />
+            <label for="pass_id" class="col-lg-2 col-md-4 col-form-label text-md-left text-lg-right etiqueta">Password</label>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+              <input type="password" id="pass1" name="pass1" class="form-control"  value="{{usuario.clave}}" />
             </div>
 
-            <label for="pass_id_2" class="col-2 col-form-label text-md-right etiqueta"
-              style="margin-left: -95px;">Password</label>
-            <div class="col-3">
-              <input type="password" id="pass2" name="pass2" class="form-control" value="{{usuario.clave}}" />
+            <label for="pass_id_2" class="col-lg-2 col-md-4 col-form-label text-md-left text-lg-right etiqueta">Password</label>
+            <div class="col-lg-3 col-md-8 col-sm-12">
+              <input type="password" id="pass2" name="pass2" class="form-control"  value="{{usuario.clave}}" />
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="pass_id" class="col-2 col-form-label text-md-right etiqueta">Mail</label>
-            <div class="col-4">
-              <input type="password" id="mail" name="mail" class="form-control" value="{{usuario.mail}}" />
+            <label for="pass_id" class="col-lg-2 col-md-4 col-sm-3 col-form-label text-md-left text-lg-right etiqueta">Mail</label>
+            <div class="col-lg-4 col-md-8 col-sm-12">
+              <input type="password" id="mail" name="mail" class="form-control"  value="{{usuario.mail}}" />
             </div>
 
-            <label for="pass_id_2" class="col-2 col-form-label text-md-right etiqueta"
-              style="margin-left: -95px;">Provincia</label>
-            <div class="col-3">
+            <label for="pass_id_2" class="col-lg-2 col-md-4 col-form-label text-md-left text-lg-right etiqueta">Provincia</label>
+            <div class="col-lg-3 col-md-8">
               <select class="form-control etiqueta" id="provincia" name="provincia" onchange="ajustarMapa()">
-                  <option selected="selected">{{usuario.provincia}}</option>
+              <option selected="selected">{{usuario.provincia}}</option>
               </select>
             </div>
           </div>
 
           <div class="form-group row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-lg-6 col-md-12">
               <div class="form-group row">
-                <label for="Credito" class="col-md-4 col-form-label text-md-right etiqueta">Credito</label>
-                <div class="col-md-4">
-                  <input type="number" id="credito" name="credito" min="0" max="1000" step="2" size="10"
-                    class="etiqueta" style="margin-top: 5px;"  value="{{usuario.credito}}" />
+                <label for="Credito" class="col-lg-4 col-md-6 col-form-label text-md-left text-lg-right etiqueta">Credito</label>
+                <div class="col-lg-4 col-md-6">
+                  <input type="number" id="credito" name="credito" min="0" max="1000" step="2" value="{{usuario.credito}}" size="10"
+                    class="etiqueta" style="margin-top: 5px;" />
                 </div>
               </div>
               <br /><br />
               <br /><br />
-              <div class="form-group row" style="margin-left: 180px;">
+              <div class="form-group row" style="justify-content: center;">
                 <button type="submit" class="btn btn-gris">Aceptar</button>
-                <a href="/login" class="btn btn-rojo" tabindex="-1" role="button" aria-disabled="true"
+                <a href="/tusArticulos" class="btn btn-rojo" tabindex="-1" role="button" aria-disabled="true"
                   style="margin-left: 50px;">Cancelar</a>
               </div>
-              
+              <input id="provincias" name="provincias" type="hidden" value="provincia">
             </div>
-            <div class="form-group col-md-6">
+            <style type="text/css">
+              @media screen and (max-width: 980px) {
+                div#map_canvas { display: none }
+              }
+            </style>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
               <div>
                 <div id="map_canvas"></div>
               </div>
