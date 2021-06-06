@@ -56,26 +56,26 @@
       <div class="containerespecial">
          <div class="row" style="margin-right: 0px;">
             {{#each articulos}}
-            <div class="col-md-6 mb-6">
+            <div class="col-lg-6 col-md-12 col-sm-12">
                <div class="card text-center">
                   <div class="card-body">
                      <div class="row">
-                        <div class="col-3 text-center">
+                        <div class="col-lg-3 text-center">
                            <img class="img-rounded"  src="/data/uploads/{{foto}}" width="110" height="120" alt="Card image" style="padding-top: 5%;">
                            <div style="padding-top: 5%;">
                               <b>Estado: {{estado}}</b>
                            </div>
                         </div>
-                        <div class="col-6 text-center">
+                        <div class="col-lg-6 text-center">
                            <div style="padding-top: 5%;">
                               <b class="m-2">{{nombre}}</b>
                               <b>{{precio}} €</b>
                            </div>
-                           <div style="padding-top: 5%;">
-                              <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
+                           <div style="padding-top: 4%;">
+                              <textarea class="descripcionArti" disabled>{{descripcion}}</textarea>
                            </div>
                         </div>
-                        <div class="col-3 text-center" style="padding-top: 4%; padding-left: 8%;">
+                        <div class="col-lg-3 text-center" style="padding-top: 4%;">
                            <button id='btn_Comprar' onClick="show({{idArticulo}})"
                               class="btn btn-gris mb-2">Comprar</button>
                            <a href="/cambiar/{{idArticulo}}" class="btn btn-rojo mb-2">Cambiar</a>
