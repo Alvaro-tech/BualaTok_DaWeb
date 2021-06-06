@@ -37,7 +37,7 @@ var userDao = new UserDAO();
 
       if(usuarioLoggued.credito >= articulo.precio){
         usuarioLoggued.credito -= articulo.precio;
-        usuarioVendedor += articulo.precio;
+        usuarioVendedor.credito += articulo.precio;
 
         articulo.disponibilidad = "comprado";
         articulo.idUsuario = idUser;

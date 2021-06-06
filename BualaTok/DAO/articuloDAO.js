@@ -11,7 +11,6 @@ var conexion = require("../database");
             var paramet = [articuloID];
             const rows = conexion.query(
               sql,paramet,(error, results) => {
-                console.log(results);
                 if (results.length > 0) {
                     var articulo = new Articulo(results[0].nombre, results[0].precio, results[0].descripcion, results[0].foto, results[0].fecha, results[0].categoria, results[0].estado, results[0].idUsuario);
                         articulo.visualizaciones = results[0].visualizaciones;
@@ -61,8 +60,6 @@ var conexion = require("../database");
          var sql = ("SELECT * FROM daweb.articulo where idUsuario <> ? AND disponibilidad = ?;");
          var dispo = 'en venta'
           var paramet = [idUser, dispo];
-          console.log("# . " +idUser );
-          console.log("# . " +dispo );
           const rows = conexion.query(
             sql,paramet,(error, results) => {
                 if(error) {
@@ -70,7 +67,6 @@ var conexion = require("../database");
                     resolve("NOT_FOUND")
                 }
                 var lista = [];
-                //console.log(results)
                 results.forEach(i => {
                     var articulo = new Articulo(i.nombre, i.precio, i.descripcion, i.foto, i.fecha, i.categoria, i.estado, i.idUsuario);
                     articulo.visualizaciones = i.visualizaciones;
@@ -78,7 +74,6 @@ var conexion = require("../database");
                     articulo.disponibilidad = i.disponibilidad;
                     lista.push(articulo);
                 });
-                //console.log(lista)
                 resolve(lista); 
             }
           );
@@ -91,8 +86,6 @@ var conexion = require("../database");
         var paramet = [articuloID];
         const rows = conexion.query(
           sql,paramet,(error, results) => {
-            console.log(results);
-            //console.log('SELECT CLAVE FROM daweb.usuario WHERE usuario = ? ' , [username]);
             if (results.length > 0) {
                 resolve(results[0].idArticulo);
             } else {
@@ -194,9 +187,6 @@ var conexion = require("../database");
             }else{
               sql += "AND disponibilidad = 'en venta' ";
             }
-          
-            console.log(sql);
-
             const rows = conexion.query(sql, (error, results) => {
                 if(error){
                     resolve("NOT_FOUND")

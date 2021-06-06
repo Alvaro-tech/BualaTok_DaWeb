@@ -13,28 +13,5 @@ class Articulo {
     this.disponibilidad = "en venta";
     }
 }
-/*
-createArticulo = (nombre, precio, descripcion, foto, fecha, categoria, estado, idUsuario) => {
-    try {
-        return new Articulo(nombre, precio, descripcion, foto, fecha, categoria, estado, idUsuario);
-    } catch (error) {
-        console.log(error);
-    }
-}
 
-listarArticulos = (results) => {
-    try {
-        var lista = [];
-
-        results.forEach(i => {
-            var articulo = new Articulo(i.nombre, i.precio, i.descripcion, i.foto, i.fecha, i.categoria, i.estado, i.idUsuario);
-            articulo.visualizaciones = i.visualizaciones;
-            articulo.idArticulo = i.idArticulo;
-            lista.push(articulo);
-        });
-        return lista;
-    } catch (error) {
-        console.log(error);
-    }
-}*/
 module.exports.Articulo = Articulo;

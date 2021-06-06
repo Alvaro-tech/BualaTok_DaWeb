@@ -2,7 +2,6 @@
 window.guardarImagen = guardarImagen;
 window.onload = function() {
 
-    console.log("Se usa el onload")
     var fileDisplayArea = document.getElementById('fotoArti');fotoArti //fileDisplayArea
     var fileInput = document.getElementById("myImage");
 

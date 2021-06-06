@@ -13,7 +13,6 @@ function show(idArt) {
   idArticulo = idArt;
   $('#idAlertaCompra').modal('show');
 
-  console.log("%%%% > " + idArt);
 }
 
 function intercambiarProducto(idArticulo, idArticuloPropio) {
@@ -22,9 +21,7 @@ function intercambiarProducto(idArticulo, idArticuloPropio) {
     request.open("GET", "http://localhost:3000/intercambiar/" + idArticulo + "/" + idArticuloPropio);
     request.responseType = "json";
     request.onload = function () {
-      console.log("Status devuelto; "+request.status );
       if (request.status === 200) {
-        console.log("Resuelve el 200")
         resolve(request.status);
       } else {
         reject(
@@ -42,12 +39,12 @@ function intercambiarProducto(idArticulo, idArticuloPropio) {
 }
 
 function intercambiar() {
-    console.log("---------------------------------------------")
+
     $('#idAlertaCompra').modal('hide');
-    intercambiarProducto(idArticulo, idArticuloPropio).then((successMessage) => {
-      // succesMessage es lo que sea que pasamos en la función resolve(...) de arriba.
-      // No tiene por qué ser un string, pero si solo es un mensaje de éxito, probablemente lo sea.
-      console.log("¡Sí! workeo ");   
+    intercambiarProducto(idArticulo, idArticuloPropio).then((successMessage) => {   
       window.location.href = "http://localhost:3000/buscador";   
     });
+    alert("No se ha podido cambiar el artículo");
+
+    
 }

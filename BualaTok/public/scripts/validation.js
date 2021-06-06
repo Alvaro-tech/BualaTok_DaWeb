@@ -17,7 +17,6 @@ function validateLogin(){
 }
 
 function validateRegistroUsuario(){
-    console.log("entra a validar")
     var x;
     x = document.forms["my-form"]["name"].value;
     if (x == "") {
@@ -63,7 +62,6 @@ function validateRegistroUsuario(){
 }
 
 function validateRegistroArticulo(){
-    console.log("entra a validar")
     var x;
     x = document.forms["my-form"]["name"].value;
     if (x == "") {

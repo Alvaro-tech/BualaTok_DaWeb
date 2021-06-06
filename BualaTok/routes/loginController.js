@@ -20,7 +20,6 @@ router.post("/login", async (req, res, next) => {
   var username = req.body.username;
   var password = req.body.password;
 
-  console.log("Hago el post");
 
   var respuesta = await userService.isUsuarioLoggued(username,password )
 

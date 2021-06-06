@@ -34,18 +34,15 @@ router.post("/registrarArticulo",upload.single('myImage') ,async (req, res, next
     var estado = req.body.estado;
 
 
-    console.log(req.file)
     var img = req.file;
     var rutaF = req.file.filename;
     //var encode_image = img.toString('base64');
 
-    console.log("Nombre del fichero multer; " +rutaF);
 
     var idUsuario = req.session.idUser;
 
     var f = new Date();
     const fecha = f.getFullYear() + "-"+ (f.getMonth()+1)+ "-" +f.getDate();
-    console.log("Hago el post");
 
     var articulo = new Articulo(nombre, precio, descripcion, rutaF, fecha, categoria, estado, idUsuario)
 

@@ -72,7 +72,6 @@ window.centerMap =  centerMap;
 window.centerMapDefault =  centerMapDefault;
 window.clearMap =  clearMap;
 window.addMarker =  addMarker;
-window.devolverProvincia =  devolverProvincia;
 window.cargar = cargar;
 window.ajustarMapa = ajustarMapa;
 
@@ -88,11 +87,9 @@ function ajustarMapa(){
   var select = document.getElementById("provincia");
   var provincia = select.options[select.selectedIndex].text;
 
-  console.log(provincia);
 
   var coordenada = coordenadas.get(provincia);
 
-  console.log(coordenada);
 
   var coor = coordenada.split(" ");
 
@@ -101,7 +98,6 @@ function ajustarMapa(){
   var lng = coor[1];
 
   if (markers[0]) {
-    console.log("Reseteo los puntos");
     markers[0].setMap(null)
   };
   markers = [];
@@ -137,8 +133,6 @@ function initialize() { //provinciaSelected
 
   var coordenada = coordenadas.get(provincia);
 
-  console.log(coordenada);
-
   var coor = coordenada.split(" ");
 
   var lat  = coor[0];
@@ -158,7 +152,6 @@ function initialize() { //provinciaSelected
     center: new google.maps.LatLng(latLng.lat(), latLng.lng()),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     disableDefaultUI: true,
-    //zoomControl: true,
     maxZoom: 19,
   });
   marker.setMap(map);
@@ -192,27 +185,3 @@ function clearMap() {
   markers = [];
 }
 
-//TODO; Borrar
-function devolverProvincia(lat, long) {
-  return new Promise(function (resolve, reject) {
-    console.log("Esta llegando a la promesa")
-    var request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:3000/provincia/" + lat + "/" + long);
-    request.responseType = "json";
-    request.onload = function () {
-      if (request.status === 200) {
-        resolve(request.status);
-      } else {
-        reject(
-          Error(
-            "No se ha podido procesar correctamente tu petición: " + request.statusText
-          )
-        );
-      }
-    };
-    request.onerror = function () {
-      reject(Error("Ha ocurrido un error."));
-    };
-    request.send();
-  });
-}

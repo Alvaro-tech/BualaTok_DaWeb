@@ -24,7 +24,6 @@ router.post("/modificarUsuario", async (req, res, next) => {
     var mail = req.body.mail;
     var credito = req.body.credito;
     var provincia = req.body.provincia;
-    console.log("Hago el post");
 
     if(password_1 != password_2){
         res.redirect("/modificarUsuario");

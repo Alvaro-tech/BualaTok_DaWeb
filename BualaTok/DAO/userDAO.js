@@ -11,8 +11,6 @@ var conexion = require("../database");
         var paramet = [username];
         const rows = conexion.query(
           sql,paramet,(error, results) => {
-            console.log(results);
-            //console.log('SELECT CLAVE FROM daweb.usuario WHERE usuario = ? ' , [username]);
             if (results.length > 0) {
                 var usuario = new Usuario(results[0].nombre, results[0].apellidos, results[0].usuario, results[0].clave, results[0].credito, results[0].provincia, results[0].mail)
                 resolve(usuario);
@@ -30,8 +28,6 @@ var conexion = require("../database");
         var paramet = [idUser];
         const rows = conexion.query(
           sql,paramet,(error, results) => {
-            console.log(results);
-            //console.log('SELECT CLAVE FROM daweb.usuario WHERE usuario = ? ' , [username]);
             if (results.length > 0) {
                 var usuario = new Usuario(results[0].nombre, results[0].apellidos, results[0].usuario, results[0].clave, results[0].credito, results[0].provincia, results[0].mail)
                 resolve(usuario);
@@ -49,8 +45,6 @@ var conexion = require("../database");
         var paramet = [username];
         const rows = conexion.query(
           sql,paramet,(error, results) => {
-            console.log(results);
-            //console.log('SELECT CLAVE FROM daweb.usuario WHERE usuario = ? ' , [username]);
             if (results.length > 0) {
                 resolve(results[0].IDUSUARIO);
             } else {

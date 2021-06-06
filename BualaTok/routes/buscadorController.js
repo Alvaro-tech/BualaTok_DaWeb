@@ -9,8 +9,6 @@ var articuloService = new ArticuloService();
 router.get("/buscador", async (req, res, next) => {
 
   var articulos = await articuloService.listarArticulosComprables(req.session.idUser);
-  console.log("Estoy en en controller, acabo de cargar todos los articulos")
-  console.log(articulos);
   if(articulos == "NOT_FOUND"){
     articulos = [];
     res.render('buscador', {articulos})

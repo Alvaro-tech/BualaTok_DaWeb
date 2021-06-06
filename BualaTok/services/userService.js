@@ -36,7 +36,6 @@ var usuarioDao = new UserDAO();
     var usuario = await usuarioDao.get(username);
     var IdUser = await usuarioDao.getID(username);
 
-    console.log('Debe resolverse post selects')
     if (usuario.clave == password) {
       return IdUser;
     } else {
@@ -46,7 +45,6 @@ var usuarioDao = new UserDAO();
 
   async registrarUsuario(usuario){
     var user = await this.getUsuario(usuario.usuario);
-    console.log("usuario en servicio" + user);
     if(user == "NOT_FOUND") {
       var registro = await usuarioDao.create(usuario);
       return registro;

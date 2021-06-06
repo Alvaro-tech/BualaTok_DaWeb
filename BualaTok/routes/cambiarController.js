@@ -45,13 +45,10 @@ router.get("/intercambiar/:idArticulo/:idArticuloPropio", async (req, res, next)
     articuloPropio.idUsuario = articulo.idUsuario;
     articulo.idUsuario = req.session.idUser;
     
-    console.log("****" + articuloPropio.precio);
-    console.log("****" + articulo.precio);
 
     articulo.disponibilidad = "cambiado"
     articuloPropio.disponibilidad = "cambiado"
 
-    console.log("****" + articuloPropio.disponibilidad);
 
     var respuesta1 = await articuloService.actualizar(articulo);
     var respuesta2 = await articuloService.actualizar(articuloPropio);
@@ -65,54 +62,6 @@ router.get("/intercambiar/:idArticulo/:idArticuloPropio", async (req, res, next)
     res.sendStatus(412);
   }
 
-  /*
-  const { idArticulo } = req.params;
-  const { idArticuloPropio } = req.params;
-
-    console.log(",.,,.,.,.,. " + " " +  idArticulo + " " + idArticuloPropio);
-
-  var sql = "SELECT PRECIO FROM daweb.articulo WHERE idArticulo = ?;";
-  var paramet = [idArticulo];
-  const rows = conexion.query(sql, paramet, (error, results) => {
-    if (results.length > 0) {
-      articuloPrecio = results[0].PRECIO;
-    }
-
-    sql = "SELECT PRECIO FROM daweb.articulo WHERE idArticulo = ?;";
-    paramet = [idArticuloPropio];
-    const rows1 = conexion.query(sql, paramet, (error, results) => {
-      if (results.length > 0) {
-        articuloPropioPrecio = results[0].PRECIO;
-      }
-
-      if(articuloPropioPrecio>=articuloPrecio){
-        sql = ('DELETE FROM daweb.articulo WHERE idArticulo = ?');
-        paramet = [idArticulo];
-        const rows2 = conexion.query(
-          sql, paramet, (error, results) => {
-            sql = ('DELETE FROM daweb.articulo WHERE idArticulo = ?');
-            paramet = [idArticuloPropio];
-            const rows3 = conexion.query(
-              sql, paramet, (error, results) => {
-                  if(error) {res.sendStatus(412); 
-                } else {
-                    res.sendStatus(200);
-                }
-              }
-            );
-            
-          }
-        );
-
-        
-      } else {
-        res.sendStatus(412);
-      }
-      
-    })
-  })
-  console.log("************************")
-  */
 });
 
 module.exports = router;
