@@ -7,55 +7,58 @@
          <i class="fas fa-search-dollar fa-6x"></i>
       </div>
       <div class="card mx-auto carta">
+
          <div class="card">
             <div class="card-body">
                <div class="row">
                   <div class="col-10">
                      <div class="row">
-                        <div class="col-2">
+                        <div class=" col-sm-12 col-xl-2">
                            <h3 class="m-2">{{articulo.nombre}}</h3>
                         </div>
-                        <div class="col-8">
+                        <div class="col-xl-8">
 
                         </div>
-                        <div class="col-2">
+                        <div class=" col-sm-12 col-xl-2">
                            <h3 class="m-2">{{articulo.precio}} €</h3>
                         </div>
                      </div>
                      <div>
-                        <textarea rows="4" cols="150" disabled>{{articulo.descripcion}}</textarea>
+                        <textarea class="descripcionArti" disabled>{{articulo.descripcion}}</textarea>
                      </div>
                   </div>
-                  <div class="col-2">
+                  <div class=" col-sm-8 col-xl-2">
                      <img class="img-rounded"  src="/data/uploads/{{articulo.foto}}" width="140" height="140" alt="Card image">
                   </div>
                </div>
             </div>
          </div>
+
+         
       <br>
       <h2 class="mx-auto">Tus articulos</h2>
       <br>
       <div class="containerespecial">
          <div class="row" style="margin-right: 0px;">
             {{#each articulosPropios}}
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4">
                <div class="card text-center">
                   <div class="card-body">
                      <div class="row">
-                        <div class="col-4 text-center">
+                        <div class="col-sm-12 col-xl-4 text-center">
                            <img class="img-rounded"  src="/data/uploads/{{foto}}" width="110" height="120" alt="Card image" style="padding-top: 5%;">
                            <div style="padding-top: 5%;">
                               <b>Estado: {{estado}}</b>
                            </div>
                         </div>
-                        <div class="col-6 text-center">
+                        <div class=" col-sm-12 col-xl-6 text-center">
                            <div style="padding-top: 18%;">
                               <h3 class="m-2">{{nombre}}</h3>
                               <h3>{{precio}}€</h3>
                            </div>
                         </div>
-                        <div class="col-2">
-                           <div class="form-check" style="padding-top: 120%;">
+                        <div class=" col-sm-12 col-xl-2">
+                           <div class="form-check checkCambiar ">
                               <input class="form-check-input" type="radio" name="flexRadioDefault"
                                  id="flexRadioDefault{{idArticulo}}" onclick="guardarId({{idArticulo}})">
                               <label class="form-check-label" for="flexRadioDefault{{idArticulo}}">
