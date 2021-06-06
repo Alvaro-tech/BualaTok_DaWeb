@@ -17,21 +17,21 @@
                   <div class="card text-center">
                      <div class="card-body">
                         <div class="row">
-                           <div class="col-4 text-center">
+                           <div class="col-sm-12 col-lg-4 text-center">
                                  <img id="ft{{idArticulo}} "class="img-rounded" src="/data/uploads/{{foto}}" width="110" height="120" alt="Card image"
                                  style="padding-top: 5%;">
                               <div style="padding-top: 5%;">
                                  <b>Estado: {{estado}}</b>
                               </div>
                            </div>
-                           <div class="col-8 text-center">
+                           <div class="col-sm-12 col-lg-8 text-center">
                               <div style="padding-top: 5%;">
-                                 <b class="m-2">{{nombre}}</b>
+                                 <b>{{nombre}}</b>
                                  <b>{{precio}}€</b>
                                  <b>Disponibilidad: {{disponibilidad}}</b>
                               </div>
                               <div style="padding-top: 4%;">
-                                 <textarea rows="4" cols="50" disabled>{{descripcion}}</textarea>
+                                 <textarea class="descripcionArti" disabled>{{descripcion}}</textarea>
                               </div>
                            </div>
                         </div>
@@ -43,7 +43,7 @@
             <div class="col-md-4 mx-auto">
                <div class="card card-body text-center">
                   <p>No hay articulos disponibles</p>
-                  <a href="/contacts/add">Add One!</a>
+                  <a href="/registarArticulo">Suba un artículo</a>
                </div>
             </div>
             {{/each}}
