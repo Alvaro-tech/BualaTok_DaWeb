@@ -29,13 +29,61 @@ body {
   padding: 10px;
 }
 
-.cartalogin {
-  border-width: 10px;
-  border-color: #343a40;
-  width: 60%; 
-  height: 40%;
-  padding: 10px;
+@media screen and (min-width: 992px) {
+  .carta {
+    border-width: 10px;
+    border-color: #343a40;
+    width: 80%; 
+    height: 80%;
+    padding: 10px;
+  }
 }
+
+@media screen and (max-width: 992px) {
+  .carta {
+    border-width: 10px;
+    border-color: #343a40;
+    width: 80%; 
+    height: 90%;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cartalogin {
+    border-width: 10px;
+    border-color: #343a40;
+    width: 60%; 
+    height: 40%;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cartalogin {
+    border-width: 10px;
+    border-color: #343a40;
+    width: 60%; 
+    height: 60%;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .descripcionArti {
+    height: 6em;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .descripcionArti {
+    
+    height: 4em;
+    width: 80%;
+  }
+}
+
 
 .etiqueta {
   font-size: large;

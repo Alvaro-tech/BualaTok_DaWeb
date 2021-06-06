@@ -1,42 +1,70 @@
-<!DOCTYPE html>
 <html lang="es">
 
-<body class="colorfondo">
-  <h2 class="text-center text-white pt-5">BualaTok</h2>
-  <h3 class="text-center text-white pt-5">
-    La web para comprar y cambiar lo que te sobra
-  </h3>
-  <br>
+  <body class="colorfondo">
+    <h2 class="text-center text-white pt-5">BualaTok</h2>
+    <h3 class="text-center text-white pt-5">
+      La web para comprar y cambiar lo que te sobra
+    </h3>
+    <br />
 
-  <div class="card mx-auto cartalogin">
-    <div id="login-row" class="row justify-content-center align-items-center">
-      <div id="login-column" class="col-md-6">
-        <div id="login-box" class="col-md-12">
-          <form id="login-form" name="loginform" action="/login" method="POST" onsubmit="return validateLogin()">
-            <br>
-            <h3 class="text-center text-dark">Login</h3>
-            <div class="form-group">
-              <label for="username" class="text-dark">Usuario:</label><br />
-              <input type="text" name="username" id="username" class="form-control" />
+    <div class="card mx-auto cartalogin">
+      <div class="card-body">
+        <div
+          id="login-row"
+          class="row justify-content-center align-items-center"
+        >
+          <div id="login-column" class="col-md-6">
+            <div id="login-box" class="col-md-12">
+              <form
+                id="login-form"
+                name="loginform"
+                action="/login"
+                method="POST"
+                onsubmit="return validateLogin()"
+              >
+                <br />
+                <h3 class="text-center text-dark">Login</h3>
+                <div class="form-group">
+                  <label for="username" class="text-dark">Usuario:</label><br />
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password" class="text-dark">Password:</label><br
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <br />
+                  <input
+                    type="submit"
+                    name="submit_Aceptar"
+                    class="btn btn-rojo btn-md"
+                    style="margin-left: 0px;"
+                    value="Aceptar"
+                    id="btn_aceptar"
+                  />
+                </div>
+                <div id="register-link" class="text-right">
+                  <a href="/registrarUsuario" class="text-dark">Regístrese aquí</a>
+                </div>
+              </form>
             </div>
-            <div class="form-group">
-              <label for="password" class="text-dark">Password:</label><br />
-              <input type="password" name="password" id="password" class="form-control" />
-            </div>
-            <div class="form-group">
-              <br />
-              <input type="submit" name="submit_Aceptar" class="btn btn-rojo btn-md" style="margin-left: 0px;"
-                value="Aceptar" id="btn_aceptar" />
-            </div>
-            <div id="register-link" class="text-right">
-              <a href="/registrarUsuario" class="text-dark">Regístrese aquí</a>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
-</body>
-<script src="scripts/validation.js" type="module"></script>
+  </body>
+  <script src="scripts/validation.js" type="module"></script>
 
 </html>
