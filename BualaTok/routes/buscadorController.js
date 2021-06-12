@@ -1,8 +1,6 @@
 var express = require("express");
 
 const router = express.Router();
-//import {conexion} from './index'
-const {Articulo} = require("../public/models/Articulo");
 const { ArticuloService } = require("../services/articuloService");
 var articuloService = new ArticuloService();
 

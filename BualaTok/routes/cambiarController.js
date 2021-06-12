@@ -1,7 +1,5 @@
 var express = require("express");
 const router = express.Router();
-//import {conexion} from './index'
-const {Articulo} = require("../public/models/Articulo");
 const { ArticuloService } = require("../services/articuloService");
 var articuloService = new ArticuloService();
 
@@ -15,23 +13,7 @@ router.get("/cambiar/:idArticulo", async (req, res, next) => {
   } else{
     res.render("cambiar", { articulo ,articulosPropios });
   }
-
-  /*
-  const { idArticulo } = req.params;
-  var sql = "SELECT * FROM daweb.articulo WHERE idArticulo = ?";
-  var paramet = [idArticulo];
-  const rows = conexion.query(sql, paramet, (error, results) => {
-    var articulos = Articulo.listarArticulos(results);
-    var articulo = articulos[0];
-
-    var sql1 = "SELECT * FROM daweb.articulo where idUsuario = ?;";
-    var paramet1 = [req.session.idUser];
-    const rows1 = conexion.query(sql1, paramet1, (error, results) => {
-      var articulosPropios = Articulo.listarArticulos(results);
-      res.render("cambiar", { articulo ,articulosPropios });
-    });
-  });
-  */
+  
 });
 
 router.get("/intercambiar/:idArticulo/:idArticuloPropio", async (req, res, next) => {

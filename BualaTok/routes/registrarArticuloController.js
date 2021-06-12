@@ -1,8 +1,6 @@
 var express = require("express");
 var multer = require("multer");
-var fs = require("fs")
 const router = express.Router();
-var conexion = require("../database");
 const {Articulo} = require("../public/models/Articulo");
 const { ArticuloService } = require("../services/articuloService");
 var articuloService = new ArticuloService();
@@ -32,12 +30,7 @@ router.post("/registrarArticulo",upload.single('myImage') ,async (req, res, next
     var precio = req.body.precio;
     var categoria = req.body.categoria;
     var estado = req.body.estado;
-
-
-    var img = req.file;
     var rutaF = req.file.filename;
-    //var encode_image = img.toString('base64');
-
 
     var idUsuario = req.session.idUser;
 

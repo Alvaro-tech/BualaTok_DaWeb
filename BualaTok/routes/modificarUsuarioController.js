@@ -3,7 +3,6 @@ var express = require("express");
 const router = express.Router();
 
 const { Usuario } = require("../public/models/Usuario");
-const { Provincia } = require("../public/models/Provincia");
 const { UserService } = require("../services/userService");
 var userService = new UserService();
 

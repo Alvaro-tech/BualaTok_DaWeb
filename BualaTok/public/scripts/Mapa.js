@@ -6,7 +6,6 @@ const Provincia = ['Alava','Albacete','Alicante','Almería','Asturias','Avila','
 
 var coordenadas = new Map();
 
-//coordenadas = {
   coordenadas.set('Alava', "42.836741 -2.813313"); 
   coordenadas.set('Albacete', "38.993140608826195 -1.8586686463586226");
   coordenadas.set('Alicante', "38.359838154088024 -0.47939100219357544");
@@ -59,14 +58,7 @@ var coordenadas = new Map();
   coordenadas.set('Zaragoza', "41.648992311304895 -0.9052811383953432");
 //};
 
-/*let map ;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}*/
 window.initialize = initialize;
 window.centerMap =  centerMap;
 window.centerMapDefault =  centerMapDefault;
