@@ -24,6 +24,7 @@ function intercambiarProducto(idArticulo, idArticuloPropio) {
       if (request.status === 200) {
         resolve(request.status);
       } else {
+        alert("No se ha podido cambiar el artículo")
         reject(
           Error(
             "No se ha podido procesar correctamente tu petición: " + request.statusText
@@ -42,9 +43,6 @@ function intercambiar() {
 
     $('#idAlertaCompra').modal('hide');
     intercambiarProducto(idArticulo, idArticuloPropio).then((successMessage) => {   
-      window.location.href = "http://localhost:3000/buscador";   
+      window.location.href = "http://localhost:3000/buscador";
     });
-    alert("No se ha podido cambiar el artículo");
-
-    
 }

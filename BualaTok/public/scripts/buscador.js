@@ -18,6 +18,7 @@ function devolverProducto(idArt) {
       if (request.status === 200) {
         resolve(request.status);
       } else {
+        alert("No se ha podido comprar el artículo")
         reject(
           Error(
             "No se ha podido procesar correctamente tu petición: " + request.statusText
